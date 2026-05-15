@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urbanitas — Derecho, Ciudad y Vivienda</title>
+<meta name="description" content="Análisis jurídico, datos y opinión sobre urbanismo y vivienda en España. Por Javier de la Torre.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --verde-oscuro: #2c3d20;
+    --verde-medio: #3d5c2e;
+    --verde-claro: #8aaa68;
+    --verde-texto: #a8c488;
+    --verde-tag: #7a9860;
+    --crema: #f5f2eb;
+    --crema-oscura: #eceade;
+    --negro: #1a1a18;
+    --texto: #1a1a18;
+    --texto-suave: #4a4840;
+    --texto-muted: #5a5650;
+    --texto-meta: #9a9385;
+    --borde: #ddd8cc;
+    --borde-fuerte: #c8c2b0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Serif 4', serif;
+    background: var(--crema);
+    color: var(--texto);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--verde-oscuro);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 20px 48px 16px;
+    border-bottom: 1px solid #3d5430;
+    max-width: 1080px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .logo {
+    font-family: 'Instrument Serif', serif;
+    font-size: 52px;
+    color: #f0ece2;
+    letter-spacing: -1.5px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .logo-tagline {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px;
+    color: var(--verde-tag);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .header-meta {
+    text-align: right;
+  }
+
+  .header-date {
+    font-family: 'Instrument Serif', serif;
+    font-size: 13px;
+    color: var(--verde-claro);
+    font-style: italic;
+    margin-bottom: 3px;
+  }
+
+  .header-num {
+    font-family: 'Source Serif 4', serif;
+    font-size: 10px;
+    color: #5a7848;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  .site-nav {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .nav-link {
+    font-family: 'Instrument Serif', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--verde-texto);
+    padding: 13px 16px 13px 0;
+    margin-right: 14px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s;
+  }
+
+  .nav-link:hover { color: #f0ece2; }
+
+  .nav-link.active {
+    color: #f0ece2;
+    border-bottom: 2px solid var(--verde-claro);
+  }
+
+  .nav-cta {
+    margin-left: auto;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    background: var(--verde-claro);
+    color: #1e2d15;
+    padding: 7px 16px;
+    border-radius: 2px;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    border: none;
+    transition: background 0.15s;
+  }
+
+  .nav-cta:hover { background: #9dbf7a; }
+
+  /* ── LAYOUT ── */
+  .site-main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 48px 0 36px;
+    border-bottom: 1px solid var(--borde-fuerte);
+  }
+
+  .eyebrow {
+    font-family: 'Source Serif 4', serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--texto-meta);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .eyebrow::before {
+    content: '●';
+    color: var(--verde-medio);
+    font-size: 7px;
+  }
+
+  .hero-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 46px;
+    line-height: 1.06;
+    letter-spacing: -1px;
+    color: var(--texto);
+    max-width: 620px;
+    margin-bottom: 20px;
+  }
+
+  .hero-desc {
+    font-family: 'Source Serif 4', serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--texto-suave);
+    line-height: 1.72;
+    max-width: 520px;
+    margin-bottom: 26px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .btn-primary {
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    font-style: italic;
+    background: var(--verde-medio);
+    color: var(--crema);
+    padding: 10px 22px;
+    border-radius: 2px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.15s;
+  }
+
+  .btn-primary:hover { background: #4a6e38; }
+
+  .btn-ghost {
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--verde-medio);
+    border-bottom: 1px solid var(--verde-medio);
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+
+  .btn-ghost:hover { color: #4a6e38; }
+
+  /* ── STREAM ── */
+  .stream { padding: 0; }
+
+  /* entrada estándar */
+  .entry {
+    padding: 30px 0;
+    border-bottom: 1px solid var(--borde);
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 0 20px;
+  }
+
+  .entry-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: #c8c2b0;
+    padding-top: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  .entry-meta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-family: 'Source Serif 4', serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--verde-medio);
+  }
+
+  .loc {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--texto-meta);
+  }
+
+  .sep {
+    font-family: 'Inter', sans-serif;
+    color: var(--borde-fuerte);
+    font-size: 10px;
+  }
+
+  .entry-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 23px;
+    line-height: 1.22;
+    color: var(--texto);
+    margin-bottom: 10px;
+    letter-spacing: -0.2px;
+  }
+
+  .entry-title-sm {
+    font-family: 'Instrument Serif', serif;
+    font-size: 19px;
+    line-height: 1.28;
+    color: var(--texto);
+    margin-bottom: 10px;
+  }
+
+  .entry-excerpt {
+    font-family: 'Source Serif 4', serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--texto-muted);
+    line-height: 1.68;
+    margin-bottom: 12px;
+    max-width: 560px;
+  }
+
+  .entry-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .entry-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--texto-meta);
+  }
+
+  .read-link {
+    font-family: 'Source Serif 4', serif;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--verde-medio);
+    border-bottom: 1px solid var(--verde-medio);
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+
+  .read-link:hover { color: #4a6e38; }
+
+  /* entrada visual — En números */
+  .visual-entry {
+    padding: 30px 0;
+    border-bottom: 1px solid var(--borde);
+  }
+
+  .visual-card {
+    background: var(--crema-oscura);
+    border-radius: 3px;
+    padding: 28px 32px;
+    margin: 14px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 90px;
+  }
+
+  .bar-col { text-align: center; }
+
+  .bar {
+    width: 20px;
+    background: var(--verde-medio);
+    border-radius: 1px 1px 0 0;
+  }
+
+  .bar-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    color: var(--texto-meta);
+    margin-top: 5px;
+  }
+
+  .stat-block {
+    border-left: 2px solid var(--verde-medio);
+    padding-left: 18px;
+  }
+
+  .stat-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 40px;
+    color: var(--texto);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--texto-meta);
+    line-height: 1.5;
+    max-width: 120px;
+  }
+
+  /* entrada podcast */
+  .podcast-entry {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 0 20px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--borde);
+  }
+
+  .pod-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--verde-oscuro);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .pod-icon:hover { background: var(--verde-medio); }
+
+  .play-btn {
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 12px solid var(--verde-claro);
+    margin-left: 4px;
+  }
+
+  /* ── NEWSLETTER ── */
+  .newsletter {
+    margin: 8px 0 56px;
+    background: var(--negro);
+    padding: 36px 40px;
+    border-radius: 3px;
+  }
+
+  .nl-eyebrow {
+    font-family: 'Source Serif 4', serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #5a5a58;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nl-eyebrow::before {
+    content: '●';
+    color: var(--verde-claro);
+    font-size: 7px;
+  }
+
+  .nl-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 30px;
+    color: #f0ece2;
+    line-height: 1.16;
+    margin-bottom: 10px;
+    letter-spacing: -0.3px;
+  }
+
+  .nl-desc {
+    font-family: 'Source Serif 4', serif;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: italic;
+    color: #7a7a78;
+    line-height: 1.68;
+    margin-bottom: 24px;
+    max-width: 400px;
+  }
+
+  .nl-form {
+    display: flex;
+    max-width: 420px;
+  }
+
+  .nl-input {
+    flex: 1;
+    background: #252523;
+    border: 1px solid #363634;
+    border-right: none;
+    color: #f0ece2;
+    font-family: 'Source Serif 4', serif;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 11px 16px;
+    border-radius: 2px 0 0 2px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .nl-input:focus { border-color: var(--verde-claro); }
+  .nl-input::placeholder { color: #4a4a48; font-style: italic; }
+
+  .nl-btn {
+    background: var(--verde-medio);
+    color: #f0ece2;
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    font-style: italic;
+    padding: 11px 22px;
+    border: none;
+    border-radius: 0 2px 2px 0;
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+
+  .nl-btn:hover { background: #4a6e38; }
+
+  .nl-fine {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px;
+    font-weight: 300;
+    font-style: italic;
+    color: #4a4a48;
+    margin-top: 12px;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--verde-oscuro);
+    padding: 36px 48px;
+  }
+
+  .footer-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .footer-logo {
+    font-family: 'Instrument Serif', serif;
+    font-size: 28px;
+    color: #f0ece2;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+
+  .footer-by {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px;
+    font-weight: 300;
+    font-style: italic;
+    color: #5a7848;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-link {
+    font-family: 'Source Serif 4', serif;
+    font-size: 12px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--verde-texto);
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+
+  .footer-link:hover { color: #f0ece2; }
+
+  .footer-copy {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    color: #3a5030;
+    letter-spacing: 0.5px;
+    align-self: flex-end;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .header-top { padding: 16px 20px 14px; }
+    .logo { font-size: 38px; }
+    .site-nav { padding: 0 20px; overflow-x: auto; }
+    .nav-link { font-size: 13px; margin-right: 10px; }
+    .site-main { padding: 0 16px; }
+    .hero-title { font-size: 34px; }
+    .visual-card { gap: 24px; padding: 20px; }
+    .stat-num { font-size: 30px; }
+    .newsletter { padding: 28px 24px; }
+    .nl-title { font-size: 24px; }
+    .site-footer { padding: 28px 20px; }
+    .footer-inner { flex-direction: column; gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-top">
+    <div>
+      <div class="logo">Urbanitas</div>
+      <div class="logo-tagline">Derecho · Ciudad · Vivienda</div>
+    </div>
+    <div class="header-meta">
+      <div class="header-date">Viernes, 15 de mayo de 2026</div>
+      <div class="header-num">N.º 1 · Mayo 2026</div>
+    </div>
+  </div>
+  <nav class="site-nav">
+    <a href="#legislativa" class="nav-link">Novedades legislativas</a>
+    <a href="#sentencia" class="nav-link active">La sentencia</a>
+    <a href="#opinion" class="nav-link">Así lo veo</a>
+    <a href="#numeros" class="nav-link">En números</a>
+    <a href="#radar" class="nav-link">En el radar</a>
+    <a href="#podcast" class="nav-link">Urbanismo y Vivienda</a>
+    <a href="#quien" class="nav-link">Quién soy</a>
+    <button class="nav-cta">Recibir el boletín →</button>
+  </nav>
+</header>
+
+<main class="site-main">
+
+  <section class="hero">
+    <div class="eyebrow">Editorial · N.º 1</div>
+    <h1 class="hero-title">Derecho, datos y ciudad.<br>Sin ruido.</h1>
+    <p class="hero-desc">Urbanitas es un espacio de análisis jurídico, datos y opinión sobre urbanismo y vivienda en España. Una vez a la semana, lo que merece atención y lo que no verás en ningún otro sitio.</p>
+    <div class="hero-actions">
+      <button class="btn-primary">Leer la última entrega →</button>
+      <span class="btn-ghost">Recibir el boletín</span>
+    </div>
+  </section>
+
+  <div class="stream">
+
+    <article class="entry" id="sentencia">
+      <div class="entry-num">01</div>
+      <div>
+        <div class="entry-meta">
+          <span class="tag">La sentencia</span>
+          <span class="sep">·</span>
+          <span class="loc">Tribunal Supremo</span>
+        </div>
+        <h2 class="entry-title">El silencio administrativo en licencias urbanísticas: el Supremo corrige la doctrina de los TSJ</h2>
+        <p class="entry-excerpt">La sala tercera fija que el silencio positivo no opera cuando la licencia solicitada es contraria al planeamiento, aunque la administración no haya resuelto en plazo. Consecuencias directas para promotores y fondos con operaciones en tramitación.</p>
+        <div class="entry-footer">
+          <span class="entry-date">12 may 2026</span>
+          <span class="sep">·</span>
+          <span class="entry-date">8 min</span>
+          <span class="sep">·</span>
+          <a href="#" class="read-link">Leer el análisis →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="visual-entry" id="numeros">
+      <div class="entry-meta">
+        <span class="tag">En números</span>
+        <span class="sep">·</span>
+        <span class="loc">Nacional · INE · 4T 2025</span>
+      </div>
+      <div class="visual-card">
+        <div>
+          <div class="chart-bars">
+            <div class="bar-col"><div class="bar" style="height:34px;opacity:0.35"></div><div class="bar-label">2022</div></div>
+            <div class="bar-col"><div class="bar" style="height:48px;opacity:0.52"></div><div class="bar-label">2023</div></div>
+            <div class="bar-col"><div class="bar" style="height:64px;opacity:0.72"></div><div class="bar-label">2024</div></div>
+            <div class="bar-col"><div class="bar" style="height:90px"></div><div class="bar-label">2025</div></div>
+          </div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">+13,2%</div>
+          <div class="stat-label">Variación anual IPV · media nacional · 4T 2025</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">37,6%</div>
+          <div class="stat-label">Esfuerzo en vivienda sobre renta del hogar</div>
+        </div>
+      </div>
+      <div class="entry-footer">
+        <span class="entry-date">9 may 2026</span>
+        <span class="sep">·</span>
+        <a href="#" class="read-link">Ver el gráfico completo →</a>
+      </div>
+    </article>
+
+    <article class="entry" id="opinion">
+      <div class="entry-num">03</div>
+      <div>
+        <div class="entry-meta">
+          <span class="tag">Así lo veo</span>
+        </div>
+        <h2 class="entry-title-sm">La ley de vivienda no ha fracasado. Ha hecho exactamente lo que hace cualquier norma sin mecanismos de ejecución: decorar.</h2>
+        <div class="entry-footer">
+          <span class="entry-date">7 may 2026</span>
+          <span class="sep">·</span>
+          <span class="entry-date">6 min</span>
+          <span class="sep">·</span>
+          <a href="#" class="read-link">Leer →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry" id="legislativa">
+      <div class="entry-num">04</div>
+      <div>
+        <div class="entry-meta">
+          <span class="tag">Novedades legislativas</span>
+          <span class="sep">·</span>
+          <span class="loc">Estatal</span>
+        </div>
+        <h2 class="entry-title-sm">RDL 2/2026: el aval estatal para primera vivienda, explicado sin eufemismos</h2>
+        <p class="entry-excerpt">Qué cubre, qué excluye, y por qué el régimen transitorio es el punto más conflictivo del decreto.</p>
+        <div class="entry-footer">
+          <span class="entry-date">5 may 2026</span>
+          <span class="sep">·</span>
+          <span class="entry-date">5 min</span>
+          <span class="sep">·</span>
+          <a href="#" class="read-link">Leer →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="podcast-entry" id="podcast">
+      <div>
+        <div class="pod-icon">
+          <div class="play-btn"></div>
+        </div>
+      </div>
+      <div>
+        <div class="entry-meta">
+          <span class="tag">Urbanismo y Vivienda</span>
+          <span class="sep">·</span>
+          <span class="loc">Ep. 1 · 47:12</span>
+        </div>
+        <h2 class="entry-title-sm">¿Construir es la solución?</h2>
+        <p class="entry-excerpt">Tres millones de viviendas, un libro y una hipótesis. Hablamos de oferta, demanda y regulación con Jorge Galindo.</p>
+        <div class="entry-footer">
+          <span class="entry-date">9 may 2026</span>
+          <span class="sep">·</span>
+          <a href="#" class="read-link">Escuchar en Spotify →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry" id="radar">
+      <div class="entry-num">06</div>
+      <div>
+        <div class="entry-meta">
+          <span class="tag">En el radar</span>
+        </div>
+        <h2 class="entry-title-sm">Lo que he leído esta semana y merece cinco minutos</h2>
+        <p class="entry-excerpt">El informe del BCE sobre concentración de vivienda en fondos, la nueva ordenanza de Barcelona y un paper sobre densidad que conviene tener cerca.</p>
+        <div class="entry-footer">
+          <span class="entry-date">3 may 2026</span>
+          <span class="sep">·</span>
+          <a href="#" class="read-link">Ver el radar →</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="newsletter">
+    <div class="nl-eyebrow">Boletín · Cada dos viernes</div>
+    <div class="nl-title">Una semana, un correo,<br>una idea que sirva.</div>
+    <p class="nl-desc">Lo que ha pasado en seis líneas. Un análisis jurídico propio. Un gráfico nuevo. Cero ruido.</p>
+    <div class="nl-form">
+      <input class="nl-input" type="email" placeholder="tu@correo.es" />
+      <button class="nl-btn">Apúntame →</button>
+    </div>
+    <p class="nl-fine">Sin spam. Te puedes ir cuando quieras.</p>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Urbanitas</div>
+      <div class="footer-by">Por Javier de la Torre</div>
+    </div>
+    <div class="footer-links">
+      <a href="#legislativa" class="footer-link">Novedades legislativas</a>
+      <a href="#sentencia" class="footer-link">La sentencia</a>
+      <a href="#opinion" class="footer-link">Así lo veo</a>
+      <a href="#numeros" class="footer-link">En números</a>
+      <a href="#radar" class="footer-link">En el radar</a>
+      <a href="#podcast" class="footer-link">Urbanismo y Vivienda</a>
+      <a href="#quien" class="footer-link">Quién soy</a>
+    </div>
+    <div class="footer-copy">© 2026 Urbanitas · urbanitas.blog</div>
+  </div>
+</footer>
+
+</body>
+</html>
