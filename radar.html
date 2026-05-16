@@ -31,15 +31,15 @@
   body { font-family: 'Source Serif 4', serif; background: var(--crema); color: var(--texto); -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; }
 
-  .site-header { background: var(--verde-oscuro); position: sticky; top: 0; z-index: 100; }
-  .header-top { display: flex; align-items: center; justify-content: space-between; padding: 16px var(--pad) 14px; border-bottom: 1px solid #3d5430; max-width: var(--max); margin: 0 auto; gap: 24px; }
-  .logo { font-family: 'Instrument Serif', serif; font-size: 52px; color: #f0ece2; letter-spacing: -1.5px; line-height: 1; margin-bottom: 4px; }
-  .logo-tagline { font-family: 'Source Serif 4', serif; font-size: 11px; color: var(--verde-tag); letter-spacing: 2px; text-transform: uppercase; font-weight: 300; font-style: italic; }
-  .header-date { font-family: 'Instrument Serif', serif; font-size: 13px; color: var(--verde-claro); font-style: italic; margin-bottom: 3px; text-align: right; }
-  .header-num { font-family: 'Source Serif 4', serif; font-size: 10px; color: #5a7848; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 300; text-align: right; }
-  .site-nav { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); display: flex; align-items: center; }
-  .nav-link { font-family: 'Instrument Serif', serif; font-size: 15px; font-style: italic; color: var(--verde-texto); padding: 12px 16px 12px 0; margin-right: 14px; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.15s; }
-  .nav-link:hover { color: #f0ece2; }
+  .site-header { background: var(--verde-oscuro); }
+  .header-top { display: flex; align-items: center; justify-content: space-between; padding: 24px var(--pad) 22px; border-bottom: 1px solid #3d5430; max-width: var(--max); margin: 0 auto; gap: 24px; transition: opacity 0.3s ease, max-height 0.3s ease; overflow: hidden; }
+  .logo { font-family: 'Instrument Serif', serif; font-size: 68px; color: #f0ece2; letter-spacing: -2px; line-height: 1; margin-bottom: 6px; }
+  .logo-tagline { font-family: 'Source Serif 4', serif; font-size: 12px; color: var(--verde-tag); letter-spacing: 2.5px; text-transform: uppercase; font-weight: 400; font-style: italic; }
+  .header-date { font-family: 'Instrument Serif', serif; font-size: 14px; color: var(--verde-claro); font-style: italic; margin-bottom: 4px; text-align: right; }
+  .header-num { font-family: 'Source Serif 4', serif; font-size: 11px; color: #6a8855; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 300; text-align: right; }
+  .site-nav { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); display: flex; align-items: center; } .site-nav-wrapper { background: #1a1a18; position: sticky; top: 0; z-index: 200; border-bottom: 1px solid #2a2a28; }
+  .nav-link { font-family: 'Instrument Serif', serif; font-size: 16px; font-style: italic; color: #e8e8e4; padding: 14px 0; margin-right: 0; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.15s; display: inline-flex; align-items: center; }
+  .nav-link:hover { color: #ffffff; } .nav-sep { display: inline-block; width: 1px; height: 14px; background: #2e5c22; opacity: 0.7; margin: 0 16px; vertical-align: middle; flex-shrink: 0; }
   .nav-link.active { color: #f0ece2; border-bottom: 2px solid var(--verde-claro); }
   .nav-cta { margin-left: auto; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; background: var(--verde-claro); color: #1e2d15; padding: 7px 16px; border-radius: 2px; cursor: pointer; white-space: nowrap; flex-shrink: 0; border: none; }
 
@@ -168,17 +168,23 @@
       <div class="header-num">N.º 1 · Mayo 2026</div>
     </div>
   </div>
-  <nav class="site-nav">
+</header>
+<div class="site-nav-wrapper"><nav class="site-nav">
     <a href="legislativa.html" class="nav-link">Novedades legislativas</a>
+    <span class="nav-sep" aria-hidden="true"></span>
     <a href="sentencia.html" class="nav-link">La sentencia</a>
+    <span class="nav-sep" aria-hidden="true"></span>
     <a href="opinion.html" class="nav-link">Así lo veo</a>
+    <span class="nav-sep" aria-hidden="true"></span>
     <a href="numeros.html" class="nav-link">En números</a>
+    <span class="nav-sep" aria-hidden="true"></span>
     <a href="radar.html" class="nav-link active">En el radar</a>
+    <span class="nav-sep" aria-hidden="true"></span>
     <a href="podcast.html" class="nav-link">Urbanismo y Vivienda</a>
+    <span class="nav-sep" aria-hidden="true"></span>
     <a href="quien.html" class="nav-link">Quién soy</a>
     <button class="nav-cta">Recibir el boletín →</button>
-  </nav>
-</header>
+  </nav></div>
 
 <main class="site-main">
 
@@ -263,6 +269,32 @@
 </footer>
 
 <script>
+  
+  // Fade out header-top on scroll
+  const headerTop = document.querySelector(".header-top");
+  if (headerTop) {
+    window.addEventListener("scroll", function() {
+      const scrollY = window.scrollY;
+      const fadeStart = 20;
+      const fadeEnd = 110;
+      if (scrollY <= fadeStart) {
+        headerTop.style.opacity = "1";
+        headerTop.style.maxHeight = "200px";
+        headerTop.style.paddingTop = "";
+        headerTop.style.paddingBottom = "";
+      } else if (scrollY >= fadeEnd) {
+        headerTop.style.opacity = "0";
+        headerTop.style.maxHeight = "0";
+        headerTop.style.paddingTop = "0";
+        headerTop.style.paddingBottom = "0";
+      } else {
+        const ratio = 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
+        headerTop.style.opacity = ratio;
+        headerTop.style.maxHeight = (ratio * 200) + "px";
+      }
+    }, { passive: true });
+  }
+
   const dias = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
   const meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
   const hoy = new Date();
