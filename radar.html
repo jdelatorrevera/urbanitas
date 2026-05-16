@@ -83,8 +83,8 @@
   .news-banner:hover { border-left-color: var(--verde-claro); background: #e8e4dc; }
 
   .banner-favicon {
-    width: 28px;
-    height: 28px;
+    width: 56px;
+    height: 56px;
     border-radius: 4px;
     background: var(--borde);
     display: flex;
@@ -164,7 +164,7 @@
       <div class="logo-tagline">Derecho · Ciudad · Vivienda</div>
     </div>
     <div>
-      <div class="header-date">Viernes, 15 de mayo de 2026</div>
+      <div class="header-date" id="header-date"></div>
       <div class="header-num">N.º 1 · Mayo 2026</div>
     </div>
   </div>
@@ -200,7 +200,7 @@
     <div class="news-banners">
       <a class="news-banner" href="https://www.lasprovincias.es/valencia-ciudad/urbanismo-encarga-aumsa-plan-derribos-reurbanizacion-casitas-20260515154035-nt.html" target="_blank" rel="noopener">
         <div class="banner-favicon">
-          <img src="https://www.google.com/s2/favicons?domain=lasprovincias.es&sz=32" alt="Las Provincias" />
+          <img src="https://www.google.com/s2/favicons?domain=lasprovincias.es&sz=64" alt="Las Provincias" />
         </div>
         <div class="banner-body">
           <div class="banner-source">Las Provincias</div>
@@ -227,7 +227,7 @@
     <div class="news-banners">
       <a class="news-banner" href="https://valenciaplaza.com/valenciaplaza/valencia/ayuntamiento-y-generalitat-negocian-asumir-al-50-el-coste-de-la-f1-que-no-pagaran-los-promotores-del-pai" target="_blank" rel="noopener">
         <div class="banner-favicon">
-          <img src="https://www.google.com/s2/favicons?domain=valenciaplaza.com&sz=32" alt="Valencia Plaza" />
+          <img src="https://www.google.com/s2/favicons?domain=valenciaplaza.com&sz=64" alt="Valencia Plaza" />
         </div>
         <div class="banner-body">
           <div class="banner-source">Valencia Plaza</div>
@@ -238,7 +238,7 @@
       </a>
       <a class="news-banner" href="https://valenciaplaza.com/valenciaplaza/valencia/campsaprieta-a-catalay-a-llorca-insiste-en-que-los-promotores-del-pai-deben-asumir-toda-la-deuda-de-la-f1" target="_blank" rel="noopener">
         <div class="banner-favicon">
-          <img src="https://www.google.com/s2/favicons?domain=valenciaplaza.com&sz=32" alt="Valencia Plaza" />
+          <img src="https://www.google.com/s2/favicons?domain=valenciaplaza.com&sz=64" alt="Valencia Plaza" />
         </div>
         <div class="banner-body">
           <div class="banner-source">Valencia Plaza</div>
@@ -262,5 +262,11 @@
   </div>
 </footer>
 
+<script>
+  const dias = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+  const meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+  const hoy = new Date();
+  document.getElementById("header-date").textContent = dias[hoy.getDay()] + ", " + hoy.getDate() + " de " + meses[hoy.getMonth()] + " de " + hoy.getFullYear();
+</script>
 </body>
 </html>
