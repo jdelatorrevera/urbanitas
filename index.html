@@ -21,588 +21,167 @@
     --crema-oscura: #eceade;
     --negro: #1a1a18;
     --texto: #1a1a18;
-    --texto-suave: #4a4840;
-    --texto-muted: #5a5650;
-    --texto-meta: #9a9385;
+    --texto-suave: #2e2c2a;
+    --texto-muted: #4a4640;
+    --texto-meta: #7a7570;
     --borde: #ddd8cc;
     --borde-fuerte: #c8c2b0;
+    --max: 1200px;
+    --pad: 56px;
   }
 
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Source Serif 4', serif;
-    background: var(--crema);
-    color: var(--texto);
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
+  body { font-family: 'Source Serif 4', serif; background: var(--crema); color: var(--texto); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; }
 
   /* ── HEADER ── */
-  .site-header {
-    background: var(--verde-oscuro);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
+  .site-header { background: var(--verde-oscuro); position: sticky; top: 0; z-index: 100; }
 
-  .header-top {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    padding: 20px 48px 16px;
-    border-bottom: 1px solid #3d5430;
-    max-width: 1080px;
-    margin: 0 auto;
-    width: 100%;
-  }
+  .header-top { display: flex; align-items: center; justify-content: space-between; padding: 16px var(--pad) 14px; border-bottom: 1px solid #3d5430; max-width: var(--max); margin: 0 auto; gap: 24px; }
 
-  .logo {
-    font-family: 'Instrument Serif', serif;
-    font-size: 52px;
-    color: #f0ece2;
-    letter-spacing: -1.5px;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
+  .logo { font-family: 'Instrument Serif', serif; font-size: 52px; color: #f0ece2; letter-spacing: -1.5px; line-height: 1; margin-bottom: 4px; }
+  .logo-tagline { font-family: 'Source Serif 4', serif; font-size: 11px; color: var(--verde-tag); letter-spacing: 2px; text-transform: uppercase; font-weight: 300; font-style: italic; }
+  .header-date { font-family: 'Instrument Serif', serif; font-size: 13px; color: var(--verde-claro); font-style: italic; margin-bottom: 3px; text-align: right; }
+  .header-num { font-family: 'Source Serif 4', serif; font-size: 10px; color: #5a7848; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 300; text-align: right; }
 
-  .logo-tagline {
-    font-family: 'Source Serif 4', serif;
-    font-size: 11px;
-    color: var(--verde-tag);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 300;
-    font-style: italic;
-  }
-
-  .header-meta {
-    text-align: right;
-  }
-
-  .header-date {
-    font-family: 'Instrument Serif', serif;
-    font-size: 13px;
-    color: var(--verde-claro);
-    font-style: italic;
-    margin-bottom: 3px;
-  }
-
-  .header-num {
-    font-family: 'Source Serif 4', serif;
-    font-size: 10px;
-    color: #5a7848;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    font-weight: 300;
-  }
-
-  .site-nav {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 0 48px;
-    display: flex;
-    align-items: center;
-    gap: 0;
-  }
-
-  .nav-link {
-    font-family: 'Instrument Serif', serif;
-    font-size: 15px;
-    font-style: italic;
-    color: var(--verde-texto);
-    padding: 13px 16px 13px 0;
-    margin-right: 14px;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    white-space: nowrap;
-    transition: color 0.15s;
-  }
-
+  .site-nav { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); display: flex; align-items: center; }
+  .nav-link { font-family: 'Instrument Serif', serif; font-size: 15px; font-style: italic; color: var(--verde-texto); padding: 12px 16px 12px 0; margin-right: 14px; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.15s; }
   .nav-link:hover { color: #f0ece2; }
-
-  .nav-link.active {
-    color: #f0ece2;
-    border-bottom: 2px solid var(--verde-claro);
-  }
-
-  .nav-cta {
-    margin-left: auto;
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    background: var(--verde-claro);
-    color: #1e2d15;
-    padding: 7px 16px;
-    border-radius: 2px;
-    letter-spacing: 0.4px;
-    cursor: pointer;
-    white-space: nowrap;
-    flex-shrink: 0;
-    border: none;
-    transition: background 0.15s;
-  }
-
+  .nav-cta { margin-left: auto; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; background: var(--verde-claro); color: #1e2d15; padding: 7px 16px; border-radius: 2px; letter-spacing: 0.4px; cursor: pointer; white-space: nowrap; flex-shrink: 0; border: none; transition: background 0.15s; }
   .nav-cta:hover { background: #9dbf7a; }
 
   /* ── LAYOUT ── */
-  .site-main {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
+  .site-main { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
 
   /* ── HERO ── */
-  .hero {
-    padding: 48px 0 36px;
-    border-bottom: 1px solid var(--borde-fuerte);
-  }
+  .hero { padding: 52px 0 40px; border-bottom: 1px solid var(--borde-fuerte); }
 
-  .eyebrow {
-    font-family: 'Source Serif 4', serif;
-    font-size: 10px;
-    font-weight: 300;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: var(--texto-meta);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+  .eyebrow { font-family: 'Source Serif 4', serif; font-size: 10px; font-weight: 300; letter-spacing: 1.8px; text-transform: uppercase; color: var(--texto-meta); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+  .eyebrow::before { content: '●'; color: var(--verde-medio); font-size: 7px; }
 
-  .eyebrow::before {
-    content: '●';
-    color: var(--verde-medio);
-    font-size: 7px;
-  }
+  .hero-title { font-family: 'Instrument Serif', serif; font-size: 54px; line-height: 1.16; letter-spacing: -0.3px; color: var(--texto); max-width: 720px; margin-bottom: 24px; font-weight: 400; }
+  .hero-desc { font-family: 'Source Serif 4', serif; font-size: 17px; font-weight: 300; color: var(--texto-suave); line-height: 1.78; max-width: 600px; margin-bottom: 28px; }
+  .hero-actions { display: flex; gap: 22px; align-items: center; }
 
-  .hero-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 46px;
-    line-height: 1.06;
-    letter-spacing: -1px;
-    color: var(--texto);
-    max-width: 620px;
-    margin-bottom: 20px;
-  }
-
-  .hero-desc {
-    font-family: 'Source Serif 4', serif;
-    font-size: 16px;
-    font-weight: 300;
-    color: var(--texto-suave);
-    line-height: 1.72;
-    max-width: 520px;
-    margin-bottom: 26px;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-  }
-
-  .btn-primary {
-    font-family: 'Source Serif 4', serif;
-    font-size: 13px;
-    font-style: italic;
-    background: var(--verde-medio);
-    color: var(--crema);
-    padding: 10px 22px;
-    border-radius: 2px;
-    cursor: pointer;
-    border: none;
-    transition: background 0.15s;
-  }
-
+  .btn-primary { font-family: 'Source Serif 4', serif; font-size: 13px; font-style: italic; background: var(--verde-medio); color: var(--crema); padding: 11px 24px; border-radius: 2px; cursor: pointer; border: none; transition: background 0.15s; }
   .btn-primary:hover { background: #4a6e38; }
+  .btn-ghost { font-family: 'Source Serif 4', serif; font-size: 13px; font-style: italic; color: var(--verde-medio); border-bottom: 1px solid var(--verde-medio); cursor: pointer; }
 
-  .btn-ghost {
-    font-family: 'Source Serif 4', serif;
-    font-size: 13px;
-    font-style: italic;
-    color: var(--verde-medio);
-    border-bottom: 1px solid var(--verde-medio);
-    cursor: pointer;
-    transition: color 0.15s;
-  }
-
-  .btn-ghost:hover { color: #4a6e38; }
-
-  /* ── STREAM ── */
-  .stream { padding: 0; }
-
-  /* entrada estándar */
-  .entry {
-    padding: 30px 0;
+  /* ── ENTRY CARD ── */
+  .entry-card {
     border-bottom: 1px solid var(--borde);
-    display: grid;
-    grid-template-columns: 52px 1fr;
-    gap: 0 20px;
+    padding: 10px 0;
   }
 
-  .entry-num {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 300;
-    color: #c8c2b0;
-    padding-top: 4px;
-    letter-spacing: 0.5px;
-  }
-
-  .entry-meta {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    font-family: 'Source Serif 4', serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--verde-medio);
-  }
-
-  .loc {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 300;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: var(--texto-meta);
-  }
-
-  .sep {
-    font-family: 'Inter', sans-serif;
-    color: var(--borde-fuerte);
-    font-size: 10px;
-  }
-
-  .entry-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 23px;
-    line-height: 1.22;
-    color: var(--texto);
-    margin-bottom: 10px;
-    letter-spacing: -0.2px;
-  }
-
-  .entry-title-sm {
-    font-family: 'Instrument Serif', serif;
-    font-size: 19px;
-    line-height: 1.28;
-    color: var(--texto);
-    margin-bottom: 10px;
-  }
-
-  .entry-excerpt {
-    font-family: 'Source Serif 4', serif;
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--texto-muted);
-    line-height: 1.68;
-    margin-bottom: 12px;
-    max-width: 560px;
-  }
-
-  .entry-footer {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .entry-date {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 300;
-    color: var(--texto-meta);
-  }
-
-  .read-link {
-    font-family: 'Source Serif 4', serif;
-    font-size: 12px;
-    font-style: italic;
-    color: var(--verde-medio);
-    border-bottom: 1px solid var(--verde-medio);
-    cursor: pointer;
-    transition: color 0.15s;
-  }
-
-  .read-link:hover { color: #4a6e38; }
-
-  /* entrada visual — En números */
-  .visual-entry {
-    padding: 30px 0;
-    border-bottom: 1px solid var(--borde);
-  }
-
-  .visual-card {
+  .entry-link {
+    display: block;
     background: var(--crema-oscura);
-    border-radius: 3px;
-    padding: 28px 32px;
-    margin: 14px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 48px;
-    flex-wrap: wrap;
+    border: 1px solid var(--borde);
+    border-left: 3px solid var(--verde-medio);
+    border-radius: 2px;
+    padding: 24px 28px;
+    margin: 14px 0 0;
+    transition: border-left-color 0.15s, background 0.15s;
   }
 
-  .chart-bars {
-    display: flex;
-    align-items: flex-end;
-    gap: 8px;
-    height: 90px;
-  }
+  .entry-link:hover { border-left-color: var(--verde-claro); background: #e8e4dc; }
 
+  .entry-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+
+  .entry-meta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .tag { font-family: 'Source Serif 4', serif; font-size: 10px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--verde-medio); }
+  .loc { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300; letter-spacing: 0.8px; text-transform: uppercase; color: var(--texto-meta); }
+  .sep { font-family: 'Inter', sans-serif; color: var(--borde-fuerte); font-size: 10px; }
+
+  .entry-date-badge { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 300; color: var(--texto-meta); white-space: nowrap; }
+
+  .entry-title { font-family: 'Instrument Serif', serif; font-size: 24px; line-height: 1.26; color: var(--texto); margin-bottom: 10px; font-weight: 400; letter-spacing: 0; }
+  .entry-title-sm { font-family: 'Instrument Serif', serif; font-size: 20px; line-height: 1.32; color: var(--texto); margin-bottom: 10px; font-weight: 400; letter-spacing: 0; }
+
+  .entry-excerpt { font-family: 'Source Serif 4', serif; font-size: 15px; font-weight: 300; color: var(--texto-muted); line-height: 1.72; margin-bottom: 14px; }
+
+  .entry-footer { display: flex; align-items: center; gap: 10px; }
+  .entry-read { font-family: 'Source Serif 4', serif; font-size: 12px; font-style: italic; color: var(--verde-medio); }
+  .entry-time { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 300; color: var(--texto-meta); }
+
+  /* visual entry */
+  .visual-entry { border-bottom: 1px solid var(--borde); padding: 10px 0; }
+  .visual-card { background: var(--crema-oscura); border-radius: 2px; border: 1px solid var(--borde); padding: 30px 36px; margin: 14px 0 0; display: flex; align-items: center; justify-content: center; gap: 52px; flex-wrap: wrap; }
+
+  .chart-bars { display: flex; align-items: flex-end; gap: 8px; height: 90px; }
   .bar-col { text-align: center; }
+  .bar { width: 22px; background: var(--verde-medio); border-radius: 1px 1px 0 0; }
+  .bar-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300; color: var(--texto-meta); margin-top: 5px; }
 
-  .bar {
-    width: 20px;
-    background: var(--verde-medio);
-    border-radius: 1px 1px 0 0;
+  .stat-block { border-left: 2px solid var(--verde-medio); padding-left: 20px; }
+  .stat-num { font-family: 'Instrument Serif', serif; font-size: 42px; color: var(--texto); line-height: 1; margin-bottom: 6px; letter-spacing: -0.5px; }
+  .stat-label { font-family: 'Source Serif 4', serif; font-size: 11px; font-weight: 300; font-style: italic; color: var(--texto-meta); line-height: 1.5; max-width: 130px; }
+
+  /* radar entry */
+  .radar-entry { border-bottom: 1px solid var(--borde); padding: 10px 0; }
+
+  .radar-banners { display: flex; flex-direction: column; gap: 10px; margin: 14px 0 0; }
+
+  .radar-banner {
+    display: block;
+    background: var(--crema-oscura);
+    border: 1px solid var(--borde);
+    border-left: 3px solid var(--verde-medio);
+    border-radius: 2px;
+    padding: 18px 22px;
+    transition: border-left-color 0.15s, background 0.15s;
   }
+  .radar-banner:hover { border-left-color: var(--verde-claro); background: #e8e4dc; }
 
-  .bar-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 300;
-    color: var(--texto-meta);
-    margin-top: 5px;
-  }
+  .banner-source { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--verde-medio); display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+  .banner-source::before { content: '↗'; font-size: 11px; }
+  .banner-title { font-family: 'Instrument Serif', serif; font-size: 17px; line-height: 1.3; color: var(--texto); font-weight: 400; margin-bottom: 5px; }
+  .banner-desc { font-family: 'Source Serif 4', serif; font-size: 13px; font-weight: 300; color: var(--texto-muted); line-height: 1.65; margin-bottom: 6px; }
+  .banner-date { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 300; color: var(--texto-meta); }
 
-  .stat-block {
-    border-left: 2px solid var(--verde-medio);
-    padding-left: 18px;
-  }
+  /* podcast */
+  .podcast-entry { border-bottom: 1px solid var(--borde); padding: 10px 0; }
+  .podcast-card { display: flex; gap: 20px; align-items: flex-start; background: var(--crema-oscura); border: 1px solid var(--borde); border-left: 3px solid var(--verde-medio); border-radius: 2px; padding: 24px 28px; margin: 14px 0 0; transition: border-left-color 0.15s; }
+  .podcast-card:hover { border-left-color: var(--verde-claro); background: #e8e4dc; }
+  .pod-icon { width: 44px; height: 44px; background: var(--verde-oscuro); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .play-btn { width: 0; height: 0; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 12px solid var(--verde-claro); margin-left: 4px; }
+  .podcast-body { flex: 1; }
 
-  .stat-num {
-    font-family: 'Instrument Serif', serif;
-    font-size: 40px;
-    color: var(--texto);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-
-  .stat-label {
-    font-family: 'Source Serif 4', serif;
-    font-size: 11px;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--texto-meta);
-    line-height: 1.5;
-    max-width: 120px;
-  }
-
-  /* entrada podcast */
-  .podcast-entry {
-    display: grid;
-    grid-template-columns: 52px 1fr;
-    gap: 0 20px;
-    padding: 30px 0;
-    border-bottom: 1px solid var(--borde);
-  }
-
-  .pod-icon {
-    width: 44px;
-    height: 44px;
-    background: var(--verde-oscuro);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    cursor: pointer;
-    transition: background 0.15s;
-  }
-
-  .pod-icon:hover { background: var(--verde-medio); }
-
-  .play-btn {
-    width: 0;
-    height: 0;
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-left: 12px solid var(--verde-claro);
-    margin-left: 4px;
-  }
+  /* entry label row */
+  .entry-label-row { padding: 24px 0 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
   /* ── NEWSLETTER ── */
-  .newsletter {
-    margin: 8px 0 56px;
-    background: var(--negro);
-    padding: 36px 40px;
-    border-radius: 3px;
-  }
-
-  .nl-eyebrow {
-    font-family: 'Source Serif 4', serif;
-    font-size: 10px;
-    font-weight: 300;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: #5a5a58;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .nl-eyebrow::before {
-    content: '●';
-    color: var(--verde-claro);
-    font-size: 7px;
-  }
-
-  .nl-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 30px;
-    color: #f0ece2;
-    line-height: 1.16;
-    margin-bottom: 10px;
-    letter-spacing: -0.3px;
-  }
-
-  .nl-desc {
-    font-family: 'Source Serif 4', serif;
-    font-size: 14px;
-    font-weight: 300;
-    font-style: italic;
-    color: #7a7a78;
-    line-height: 1.68;
-    margin-bottom: 24px;
-    max-width: 400px;
-  }
-
-  .nl-form {
-    display: flex;
-    max-width: 420px;
-  }
-
-  .nl-input {
-    flex: 1;
-    background: #252523;
-    border: 1px solid #363634;
-    border-right: none;
-    color: #f0ece2;
-    font-family: 'Source Serif 4', serif;
-    font-size: 14px;
-    font-weight: 300;
-    padding: 11px 16px;
-    border-radius: 2px 0 0 2px;
-    outline: none;
-    transition: border-color 0.15s;
-  }
-
-  .nl-input:focus { border-color: var(--verde-claro); }
+  .newsletter { margin: 8px 0 60px; background: var(--negro); padding: 40px 44px; border-radius: 3px; }
+  .nl-eyebrow { font-family: 'Source Serif 4', serif; font-size: 10px; font-weight: 300; letter-spacing: 1.8px; text-transform: uppercase; color: #5a5a58; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .nl-eyebrow::before { content: '●'; color: var(--verde-claro); font-size: 7px; }
+  .nl-title { font-family: 'Instrument Serif', serif; font-size: 32px; color: #f0ece2; line-height: 1.18; margin-bottom: 12px; letter-spacing: -0.2px; }
+  .nl-desc { font-family: 'Source Serif 4', serif; font-size: 15px; font-weight: 300; font-style: italic; color: #7a7a78; line-height: 1.7; margin-bottom: 26px; max-width: 420px; }
+  .nl-form { display: flex; max-width: 440px; }
+  .nl-input { flex: 1; background: #252523; border: 1px solid #363634; border-right: none; color: #f0ece2; font-family: 'Source Serif 4', serif; font-size: 14px; font-weight: 300; padding: 12px 16px; border-radius: 2px 0 0 2px; outline: none; }
   .nl-input::placeholder { color: #4a4a48; font-style: italic; }
+  .nl-btn { background: var(--verde-medio); color: #f0ece2; font-family: 'Source Serif 4', serif; font-size: 13px; font-style: italic; padding: 12px 24px; border: none; border-radius: 0 2px 2px 0; cursor: pointer; white-space: nowrap; }
 
-  .nl-btn {
-    background: var(--verde-medio);
-    color: #f0ece2;
-    font-family: 'Source Serif 4', serif;
-    font-size: 13px;
-    font-style: italic;
-    padding: 11px 22px;
-    border: none;
-    border-radius: 0 2px 2px 0;
-    cursor: pointer;
-    transition: background 0.15s;
-    white-space: nowrap;
-  }
-
-  .nl-btn:hover { background: #4a6e38; }
-
-  .nl-fine {
-    font-family: 'Source Serif 4', serif;
-    font-size: 11px;
-    font-weight: 300;
-    font-style: italic;
-    color: #4a4a48;
-    margin-top: 12px;
-  }
+  .nl-fine { font-family: 'Source Serif 4', serif; font-size: 11px; font-weight: 300; font-style: italic; color: #4a4a48; margin-top: 12px; }
 
   /* ── FOOTER ── */
-  .site-footer {
-    background: var(--verde-oscuro);
-    padding: 36px 48px;
-  }
-
-  .footer-inner {
-    max-width: 860px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-
-  .footer-logo {
-    font-family: 'Instrument Serif', serif;
-    font-size: 28px;
-    color: #f0ece2;
-    letter-spacing: -0.5px;
-    margin-bottom: 6px;
-  }
-
-  .footer-by {
-    font-family: 'Source Serif 4', serif;
-    font-size: 11px;
-    font-weight: 300;
-    font-style: italic;
-    color: #5a7848;
-  }
-
-  .footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .footer-link {
-    font-family: 'Source Serif 4', serif;
-    font-size: 12px;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--verde-texto);
-    cursor: pointer;
-    transition: color 0.15s;
-  }
-
+  .site-footer { background: var(--verde-oscuro); padding: 36px var(--pad); }
+  .footer-inner { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
+  .footer-logo { font-family: 'Instrument Serif', serif; font-size: 28px; color: #f0ece2; margin-bottom: 6px; }
+  .footer-by { font-family: 'Source Serif 4', serif; font-size: 11px; font-weight: 300; font-style: italic; color: #5a7848; }
+  .footer-links { display: flex; flex-direction: column; gap: 8px; }
+  .footer-link { font-family: 'Source Serif 4', serif; font-size: 12px; font-weight: 300; font-style: italic; color: var(--verde-texto); transition: color 0.15s; }
   .footer-link:hover { color: #f0ece2; }
-
-  .footer-copy {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 300;
-    color: #3a5030;
-    letter-spacing: 0.5px;
-    align-self: flex-end;
-  }
+  .footer-copy { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300; color: #3a5030; letter-spacing: 0.5px; align-self: flex-end; }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 720px) {
-    .header-top { padding: 16px 20px 14px; }
+  @media (max-width: 860px) {
+    :root { --pad: 20px; }
     .logo { font-size: 38px; }
-    .site-nav { padding: 0 20px; overflow-x: auto; }
-    .nav-link { font-size: 13px; margin-right: 10px; }
-    .site-main { padding: 0 16px; }
-    .hero-title { font-size: 34px; }
-    .visual-card { gap: 24px; padding: 20px; }
-    .stat-num { font-size: 30px; }
+    .site-nav { overflow-x: auto; }
+    .hero-title { font-size: 36px; }
+    .visual-card { gap: 28px; padding: 22px; }
+    .stat-num { font-size: 32px; }
     .newsletter { padding: 28px 24px; }
-    .nl-title { font-size: 24px; }
-    .site-footer { padding: 28px 20px; }
     .footer-inner { flex-direction: column; gap: 24px; }
   }
 </style>
@@ -612,22 +191,22 @@
 <header class="site-header">
   <div class="header-top">
     <div>
-      <div class="logo">Urbanitas</div>
+      <a href="index.html"><div class="logo">Urbanitas</div></a>
       <div class="logo-tagline">Derecho · Ciudad · Vivienda</div>
     </div>
-    <div class="header-meta">
+    <div>
       <div class="header-date">Viernes, 15 de mayo de 2026</div>
       <div class="header-num">N.º 1 · Mayo 2026</div>
     </div>
   </div>
   <nav class="site-nav">
-    <a href="#legislativa" class="nav-link">Novedades legislativas</a>
-    <a href="#sentencia" class="nav-link active">La sentencia</a>
-    <a href="#opinion" class="nav-link">Así lo veo</a>
-    <a href="#numeros" class="nav-link">En números</a>
-    <a href="#radar" class="nav-link">En el radar</a>
-    <a href="#podcast" class="nav-link">Urbanismo y Vivienda</a>
-    <a href="#quien" class="nav-link">Quién soy</a>
+    <a href="legislativa.html" class="nav-link">Novedades legislativas</a>
+    <a href="sentencia.html" class="nav-link">La sentencia</a>
+    <a href="opinion.html" class="nav-link">Así lo veo</a>
+    <a href="numeros.html" class="nav-link">En números</a>
+    <a href="radar.html" class="nav-link">En el radar</a>
+    <a href="podcast.html" class="nav-link">Urbanismo y Vivienda</a>
+    <a href="quien.html" class="nav-link">Quién soy</a>
     <button class="nav-cta">Recibir el boletín →</button>
   </nav>
 </header>
@@ -646,28 +225,29 @@
 
   <div class="stream">
 
-    <article class="entry" id="sentencia">
-      <div class="entry-num">01</div>
-      <div>
-        <div class="entry-meta">
-          <span class="tag">La sentencia</span>
-          <span class="sep">·</span>
-          <span class="loc">Tribunal Supremo</span>
+    <!-- LA SENTENCIA -->
+    <div class="entry-card">
+      <div class="entry-label-row">
+        <span class="tag">La sentencia</span>
+        <span class="sep">·</span>
+        <span class="loc">Tribunal Supremo</span>
+      </div>
+      <a href="sentencia.html" class="entry-link">
+        <div class="entry-top">
+          <div class="entry-meta"></div>
+          <span class="entry-date-badge">12 may 2026 · 8 min</span>
         </div>
-        <h2 class="entry-title">El silencio administrativo en licencias urbanísticas: el Supremo corrige la doctrina de los TSJ</h2>
+        <div class="entry-title">El silencio administrativo en licencias urbanísticas: el Supremo corrige la doctrina de los TSJ</div>
         <p class="entry-excerpt">La sala tercera fija que el silencio positivo no opera cuando la licencia solicitada es contraria al planeamiento, aunque la administración no haya resuelto en plazo. Consecuencias directas para promotores y fondos con operaciones en tramitación.</p>
         <div class="entry-footer">
-          <span class="entry-date">12 may 2026</span>
-          <span class="sep">·</span>
-          <span class="entry-date">8 min</span>
-          <span class="sep">·</span>
-          <a href="#" class="read-link">Leer el análisis →</a>
+          <span class="entry-read">Leer el análisis →</span>
         </div>
-      </div>
-    </article>
+      </a>
+    </div>
 
-    <article class="visual-entry" id="numeros">
-      <div class="entry-meta">
+    <!-- EN NÚMEROS -->
+    <div class="visual-entry">
+      <div class="entry-label-row">
         <span class="tag">En números</span>
         <span class="sep">·</span>
         <span class="loc">Nacional · INE · 4T 2025</span>
@@ -676,8 +256,8 @@
         <div>
           <div class="chart-bars">
             <div class="bar-col"><div class="bar" style="height:34px;opacity:0.35"></div><div class="bar-label">2022</div></div>
-            <div class="bar-col"><div class="bar" style="height:48px;opacity:0.52"></div><div class="bar-label">2023</div></div>
-            <div class="bar-col"><div class="bar" style="height:64px;opacity:0.72"></div><div class="bar-label">2024</div></div>
+            <div class="bar-col"><div class="bar" style="height:50px;opacity:0.52"></div><div class="bar-label">2023</div></div>
+            <div class="bar-col"><div class="bar" style="height:68px;opacity:0.72"></div><div class="bar-label">2024</div></div>
             <div class="bar-col"><div class="bar" style="height:90px"></div><div class="bar-label">2025</div></div>
           </div>
         </div>
@@ -690,87 +270,102 @@
           <div class="stat-label">Esfuerzo en vivienda sobre renta del hogar</div>
         </div>
       </div>
-      <div class="entry-footer">
-        <span class="entry-date">9 may 2026</span>
+      <div class="entry-footer" style="padding: 12px 0 18px;">
+        <span class="entry-date-badge" style="color:var(--texto-meta);font-family:'Inter',sans-serif;font-size:11px;font-weight:300;">9 may 2026</span>
         <span class="sep">·</span>
-        <a href="#" class="read-link">Ver el gráfico completo →</a>
+        <a href="numeros.html" class="entry-read" style="font-family:'Source Serif 4',serif;font-size:12px;font-style:italic;color:var(--verde-medio);">Ver el gráfico completo →</a>
       </div>
-    </article>
+    </div>
 
-    <article class="entry" id="opinion">
-      <div class="entry-num">03</div>
-      <div>
-        <div class="entry-meta">
-          <span class="tag">Así lo veo</span>
+    <!-- ASÍ LO VEO -->
+    <div class="entry-card">
+      <div class="entry-label-row">
+        <span class="tag">Así lo veo</span>
+      </div>
+      <a href="opinion.html" class="entry-link">
+        <div class="entry-top">
+          <div class="entry-meta"></div>
+          <span class="entry-date-badge">7 may 2026 · 6 min</span>
         </div>
-        <h2 class="entry-title-sm">La ley de vivienda no ha fracasado. Ha hecho exactamente lo que hace cualquier norma sin mecanismos de ejecución: decorar.</h2>
+        <div class="entry-title-sm">La ley de vivienda no ha fracasado. Ha hecho exactamente lo que hace cualquier norma sin mecanismos de ejecución: decorar.</div>
         <div class="entry-footer">
-          <span class="entry-date">7 may 2026</span>
-          <span class="sep">·</span>
-          <span class="entry-date">6 min</span>
-          <span class="sep">·</span>
-          <a href="#" class="read-link">Leer →</a>
+          <span class="entry-read">Leer →</span>
         </div>
-      </div>
-    </article>
+      </a>
+    </div>
 
-    <article class="entry" id="legislativa">
-      <div class="entry-num">04</div>
-      <div>
-        <div class="entry-meta">
-          <span class="tag">Novedades legislativas</span>
-          <span class="sep">·</span>
-          <span class="loc">Estatal</span>
+    <!-- NOVEDADES LEGISLATIVAS -->
+    <div class="entry-card">
+      <div class="entry-label-row">
+        <span class="tag">Novedades legislativas</span>
+        <span class="sep">·</span>
+        <span class="loc">Estatal</span>
+      </div>
+      <a href="legislativa.html" class="entry-link">
+        <div class="entry-top">
+          <div class="entry-meta"></div>
+          <span class="entry-date-badge">5 may 2026 · 5 min</span>
         </div>
-        <h2 class="entry-title-sm">RDL 2/2026: el aval estatal para primera vivienda, explicado sin eufemismos</h2>
+        <div class="entry-title-sm">RDL 2/2026: el aval estatal para primera vivienda, explicado sin eufemismos</div>
         <p class="entry-excerpt">Qué cubre, qué excluye, y por qué el régimen transitorio es el punto más conflictivo del decreto.</p>
         <div class="entry-footer">
-          <span class="entry-date">5 may 2026</span>
-          <span class="sep">·</span>
-          <span class="entry-date">5 min</span>
-          <span class="sep">·</span>
-          <a href="#" class="read-link">Leer →</a>
+          <span class="entry-read">Leer →</span>
         </div>
-      </div>
-    </article>
+      </a>
+    </div>
 
-    <article class="podcast-entry" id="podcast">
-      <div>
-        <div class="pod-icon">
-          <div class="play-btn"></div>
-        </div>
+    <!-- PODCAST -->
+    <div class="podcast-entry">
+      <div class="entry-label-row">
+        <span class="tag">Urbanismo y Vivienda</span>
+        <span class="sep">·</span>
+        <span class="loc">Ep. 1 · 47:12</span>
       </div>
-      <div>
-        <div class="entry-meta">
-          <span class="tag">Urbanismo y Vivienda</span>
-          <span class="sep">·</span>
-          <span class="loc">Ep. 1 · 47:12</span>
+      <a href="podcast.html" class="podcast-card">
+        <div class="pod-icon"><div class="play-btn"></div></div>
+        <div class="podcast-body">
+          <div class="entry-top" style="margin-bottom:10px;">
+            <div></div>
+            <span class="entry-date-badge">9 may 2026</span>
+          </div>
+          <div class="entry-title-sm">¿Construir es la solución?</div>
+          <p class="entry-excerpt">Tres millones de viviendas, un libro y una hipótesis. Hablamos de oferta, demanda y regulación con Jorge Galindo.</p>
+          <div class="entry-footer">
+            <span class="entry-read">Escuchar en Spotify →</span>
+          </div>
         </div>
-        <h2 class="entry-title-sm">¿Construir es la solución?</h2>
-        <p class="entry-excerpt">Tres millones de viviendas, un libro y una hipótesis. Hablamos de oferta, demanda y regulación con Jorge Galindo.</p>
-        <div class="entry-footer">
-          <span class="entry-date">9 may 2026</span>
-          <span class="sep">·</span>
-          <a href="#" class="read-link">Escuchar en Spotify →</a>
-        </div>
-      </div>
-    </article>
+      </a>
+    </div>
 
-    <article class="entry" id="radar">
-      <div class="entry-num">06</div>
-      <div>
-        <div class="entry-meta">
-          <span class="tag">En el radar</span>
-        </div>
-        <h2 class="entry-title-sm">Lo que he leído esta semana y merece cinco minutos</h2>
-        <p class="entry-excerpt">El informe del BCE sobre concentración de vivienda en fondos, la nueva ordenanza de Barcelona y un paper sobre densidad que conviene tener cerca.</p>
-        <div class="entry-footer">
-          <span class="entry-date">3 may 2026</span>
-          <span class="sep">·</span>
-          <a href="#" class="read-link">Ver el radar →</a>
-        </div>
+    <!-- EN EL RADAR -->
+    <div class="radar-entry">
+      <div class="entry-label-row">
+        <span class="tag">En el radar</span>
+        <span class="sep">·</span>
+        <span class="loc">València · PAI del Grao</span>
       </div>
-    </article>
+      <div style="padding: 12px 0 0;">
+        <div class="entry-title-sm" style="margin-bottom:10px;">La deuda de la F1 en el PAI del Grao: un convenio de 2007, 46 millones en litigio y Camps presionando desde fuera</div>
+        <p style="font-family:'Source Serif 4',serif;font-size:15px;font-weight:300;color:var(--texto-muted);line-height:1.72;margin-bottom:16px;">Ayuntamiento y Generalitat negocian repartirse al 50% la parte de la deuda que los promotores no están obligados a asumir. El expresident Camps insiste en que el convenio que él firmó en 2007 obliga a repercutir el 100% a los urbanizadores.</p>
+      </div>
+      <div class="radar-banners">
+        <a class="radar-banner" href="https://valenciaplaza.com/valenciaplaza/valencia/ayuntamiento-y-generalitat-negocian-asumir-al-50-el-coste-de-la-f1-que-no-pagaran-los-promotores-del-pai" target="_blank" rel="noopener">
+          <div class="banner-source">Valencia Plaza</div>
+          <div class="banner-title">Ayuntamiento y Generalitat negocian asumir al 50% el coste de la F1 que no pagarán los promotores del PAI</div>
+          <div class="banner-desc">Ultiman un nuevo convenio que fija un reparto equitativo de los más de 20 millones de deuda pendiente y establece el pago del Ayuntamiento en suelo del propio PAI para VPO.</div>
+          <div class="banner-date">12 may 2026</div>
+        </a>
+        <a class="radar-banner" href="https://valenciaplaza.com/valenciaplaza/valencia/campsaprieta-a-catalay-a-llorca-insiste-en-que-los-promotores-del-pai-deben-asumir-toda-la-deuda-de-la-f1" target="_blank" rel="noopener">
+          <div class="banner-source">Valencia Plaza</div>
+          <div class="banner-title">Camps aprieta a Catalá y a Llorca: insiste en que los promotores del PAI deben asumir toda la deuda de la F1</div>
+          <div class="banner-desc">El expresident considera que el convenio firmado en 2007 obliga al Ayuntamiento a reclamar a los urbanizadores la totalidad de la inversión del circuito.</div>
+          <div class="banner-date">13 may 2026</div>
+        </a>
+      </div>
+      <div style="padding: 14px 0 18px;">
+        <a href="radar.html" style="font-family:'Source Serif 4',serif;font-size:12px;font-style:italic;color:var(--verde-medio);border-bottom:1px solid var(--verde-medio);">Ver todo el radar →</a>
+      </div>
+    </div>
 
   </div>
 
@@ -794,13 +389,13 @@
       <div class="footer-by">Por Javier de la Torre</div>
     </div>
     <div class="footer-links">
-      <a href="#legislativa" class="footer-link">Novedades legislativas</a>
-      <a href="#sentencia" class="footer-link">La sentencia</a>
-      <a href="#opinion" class="footer-link">Así lo veo</a>
-      <a href="#numeros" class="footer-link">En números</a>
-      <a href="#radar" class="footer-link">En el radar</a>
-      <a href="#podcast" class="footer-link">Urbanismo y Vivienda</a>
-      <a href="#quien" class="footer-link">Quién soy</a>
+      <a href="legislativa.html" class="footer-link">Novedades legislativas</a>
+      <a href="sentencia.html" class="footer-link">La sentencia</a>
+      <a href="opinion.html" class="footer-link">Así lo veo</a>
+      <a href="numeros.html" class="footer-link">En números</a>
+      <a href="radar.html" class="footer-link">En el radar</a>
+      <a href="podcast.html" class="footer-link">Urbanismo y Vivienda</a>
+      <a href="quien.html" class="footer-link">Quién soy</a>
     </div>
     <div class="footer-copy">© 2026 Urbanitas · urbanitas.blog</div>
   </div>
