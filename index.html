@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --verde-oscuro: #2c3d20;
     --verde-medio: #3d5c2e;
@@ -29,128 +28,109 @@
     --max: 1200px;
     --pad: 56px;
   }
-
   html { scroll-behavior: smooth; }
   body { font-family: 'Source Serif 4', serif; background: var(--crema); color: var(--texto); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; }
 
-  /* ── HEADER ── */
   .site-header { background: var(--verde-oscuro); position: sticky; top: 0; z-index: 100; }
-
   .header-top { display: flex; align-items: center; justify-content: space-between; padding: 16px var(--pad) 14px; border-bottom: 1px solid #3d5430; max-width: var(--max); margin: 0 auto; gap: 24px; }
-
   .logo { font-family: 'Instrument Serif', serif; font-size: 52px; color: #f0ece2; letter-spacing: -1.5px; line-height: 1; margin-bottom: 4px; }
   .logo-tagline { font-family: 'Source Serif 4', serif; font-size: 11px; color: var(--verde-tag); letter-spacing: 2px; text-transform: uppercase; font-weight: 300; font-style: italic; }
   .header-date { font-family: 'Instrument Serif', serif; font-size: 13px; color: var(--verde-claro); font-style: italic; margin-bottom: 3px; text-align: right; }
   .header-num { font-family: 'Source Serif 4', serif; font-size: 10px; color: #5a7848; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 300; text-align: right; }
-
   .site-nav { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); display: flex; align-items: center; }
   .nav-link { font-family: 'Instrument Serif', serif; font-size: 15px; font-style: italic; color: var(--verde-texto); padding: 12px 16px 12px 0; margin-right: 14px; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.15s; }
   .nav-link:hover { color: #f0ece2; }
   .nav-cta { margin-left: auto; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; background: var(--verde-claro); color: #1e2d15; padding: 7px 16px; border-radius: 2px; letter-spacing: 0.4px; cursor: pointer; white-space: nowrap; flex-shrink: 0; border: none; transition: background 0.15s; }
   .nav-cta:hover { background: #9dbf7a; }
 
-  /* ── LAYOUT ── */
   .site-main { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
 
-  /* ── HERO ── */
   .hero { padding: 52px 0 40px; border-bottom: 1px solid var(--borde-fuerte); }
-
   .eyebrow { font-family: 'Source Serif 4', serif; font-size: 10px; font-weight: 300; letter-spacing: 1.8px; text-transform: uppercase; color: var(--texto-meta); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
   .eyebrow::before { content: '●'; color: var(--verde-medio); font-size: 7px; }
-
   .hero-title { font-family: 'Instrument Serif', serif; font-size: 54px; line-height: 1.16; letter-spacing: -0.3px; color: var(--texto); max-width: 720px; margin-bottom: 24px; font-weight: 400; }
   .hero-desc { font-family: 'Source Serif 4', serif; font-size: 17px; font-weight: 300; color: var(--texto-suave); line-height: 1.78; max-width: 600px; margin-bottom: 28px; }
   .hero-actions { display: flex; gap: 22px; align-items: center; }
-
   .btn-primary { font-family: 'Source Serif 4', serif; font-size: 13px; font-style: italic; background: var(--verde-medio); color: var(--crema); padding: 11px 24px; border-radius: 2px; cursor: pointer; border: none; transition: background 0.15s; }
   .btn-primary:hover { background: #4a6e38; }
   .btn-ghost { font-family: 'Source Serif 4', serif; font-size: 13px; font-style: italic; color: var(--verde-medio); border-bottom: 1px solid var(--verde-medio); cursor: pointer; }
 
-  /* ── ENTRY CARD ── */
-  .entry-card {
-    border-bottom: 1px solid var(--borde);
-    padding: 10px 0;
-  }
-
-  .entry-link {
-    display: block;
-    background: var(--crema-oscura);
-    border: 1px solid var(--borde);
-    border-left: 3px solid var(--verde-medio);
-    border-radius: 2px;
-    padding: 24px 28px;
-    margin: 14px 0 0;
-    transition: border-left-color 0.15s, background 0.15s;
-  }
-
+  /* entry cards */
+  .entry-card { border-bottom: 1px solid var(--borde); padding: 10px 0; }
+  .entry-link { display: block; background: var(--crema-oscura); border: 1px solid var(--borde); border-left: 3px solid var(--verde-medio); border-radius: 2px; padding: 24px 28px; margin: 14px 0 0; transition: border-left-color 0.15s, background 0.15s; }
   .entry-link:hover { border-left-color: var(--verde-claro); background: #e8e4dc; }
-
   .entry-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
-
   .entry-meta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
   .tag { font-family: 'Source Serif 4', serif; font-size: 10px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--verde-medio); }
   .loc { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300; letter-spacing: 0.8px; text-transform: uppercase; color: var(--texto-meta); }
   .sep { font-family: 'Inter', sans-serif; color: var(--borde-fuerte); font-size: 10px; }
-
   .entry-date-badge { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 300; color: var(--texto-meta); white-space: nowrap; }
-
-  .entry-title { font-family: 'Instrument Serif', serif; font-size: 24px; line-height: 1.26; color: var(--texto); margin-bottom: 10px; font-weight: 400; letter-spacing: 0; }
-  .entry-title-sm { font-family: 'Instrument Serif', serif; font-size: 20px; line-height: 1.32; color: var(--texto); margin-bottom: 10px; font-weight: 400; letter-spacing: 0; }
-
+  .entry-title { font-family: 'Instrument Serif', serif; font-size: 24px; line-height: 1.26; color: var(--texto); margin-bottom: 10px; font-weight: 400; }
+  .entry-title-sm { font-family: 'Instrument Serif', serif; font-size: 20px; line-height: 1.32; color: var(--texto); margin-bottom: 10px; font-weight: 400; }
   .entry-excerpt { font-family: 'Source Serif 4', serif; font-size: 15px; font-weight: 300; color: var(--texto-muted); line-height: 1.72; margin-bottom: 14px; }
-
   .entry-footer { display: flex; align-items: center; gap: 10px; }
   .entry-read { font-family: 'Source Serif 4', serif; font-size: 12px; font-style: italic; color: var(--verde-medio); }
-  .entry-time { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 300; color: var(--texto-meta); }
 
-  /* visual entry */
+  /* visual */
   .visual-entry { border-bottom: 1px solid var(--borde); padding: 10px 0; }
   .visual-card { background: var(--crema-oscura); border-radius: 2px; border: 1px solid var(--borde); padding: 30px 36px; margin: 14px 0 0; display: flex; align-items: center; justify-content: center; gap: 52px; flex-wrap: wrap; }
-
   .chart-bars { display: flex; align-items: flex-end; gap: 8px; height: 90px; }
   .bar-col { text-align: center; }
   .bar { width: 22px; background: var(--verde-medio); border-radius: 1px 1px 0 0; }
   .bar-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300; color: var(--texto-meta); margin-top: 5px; }
-
   .stat-block { border-left: 2px solid var(--verde-medio); padding-left: 20px; }
   .stat-num { font-family: 'Instrument Serif', serif; font-size: 42px; color: var(--texto); line-height: 1; margin-bottom: 6px; letter-spacing: -0.5px; }
   .stat-label { font-family: 'Source Serif 4', serif; font-size: 11px; font-weight: 300; font-style: italic; color: var(--texto-meta); line-height: 1.5; max-width: 130px; }
 
-  /* radar entry */
-  .radar-entry { border-bottom: 1px solid var(--borde); padding: 10px 0; }
-
-  .radar-banners { display: flex; flex-direction: column; gap: 10px; margin: 14px 0 0; }
-
-  .radar-banner {
-    display: block;
-    background: var(--crema-oscura);
-    border: 1px solid var(--borde);
-    border-left: 3px solid var(--verde-medio);
-    border-radius: 2px;
-    padding: 18px 22px;
-    transition: border-left-color 0.15s, background 0.15s;
-  }
-  .radar-banner:hover { border-left-color: var(--verde-claro); background: #e8e4dc; }
-
-  .banner-source { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--verde-medio); display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
-  .banner-source::before { content: '↗'; font-size: 11px; }
-  .banner-title { font-family: 'Instrument Serif', serif; font-size: 17px; line-height: 1.3; color: var(--texto); font-weight: 400; margin-bottom: 5px; }
-  .banner-desc { font-family: 'Source Serif 4', serif; font-size: 13px; font-weight: 300; color: var(--texto-muted); line-height: 1.65; margin-bottom: 6px; }
-  .banner-date { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 300; color: var(--texto-meta); }
-
   /* podcast */
   .podcast-entry { border-bottom: 1px solid var(--borde); padding: 10px 0; }
-  .podcast-card { display: flex; gap: 20px; align-items: flex-start; background: var(--crema-oscura); border: 1px solid var(--borde); border-left: 3px solid var(--verde-medio); border-radius: 2px; padding: 24px 28px; margin: 14px 0 0; transition: border-left-color 0.15s; }
+  .podcast-card { display: flex; gap: 20px; align-items: flex-start; background: var(--crema-oscura); border: 1px solid var(--borde); border-left: 3px solid var(--verde-medio); border-radius: 2px; padding: 24px 28px; margin: 14px 0 0; transition: border-left-color 0.15s, background 0.15s; }
   .podcast-card:hover { border-left-color: var(--verde-claro); background: #e8e4dc; }
   .pod-icon { width: 44px; height: 44px; background: var(--verde-oscuro); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .play-btn { width: 0; height: 0; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 12px solid var(--verde-claro); margin-left: 4px; }
   .podcast-body { flex: 1; }
 
-  /* entry label row */
   .entry-label-row { padding: 24px 0 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
-  /* ── NEWSLETTER ── */
+  /* radar banners con favicon */
+  .radar-entry { border-bottom: 1px solid var(--borde); padding: 10px 0; }
+  .radar-banners { display: flex; flex-direction: column; gap: 10px; margin: 14px 0 0; }
+
+  .radar-banner {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 0 14px;
+    background: var(--crema-oscura);
+    border: 1px solid var(--borde);
+    border-left: 3px solid var(--verde-medio);
+    border-radius: 2px;
+    padding: 16px 20px;
+    transition: border-left-color 0.15s, background 0.15s;
+    align-items: start;
+  }
+  .radar-banner:hover { border-left-color: var(--verde-claro); background: #e8e4dc; }
+
+  .banner-favicon {
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    background: var(--borde);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .banner-favicon img { width: 20px; height: 20px; object-fit: contain; }
+
+  .banner-source { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--verde-medio); margin-bottom: 4px; }
+  .banner-title { font-family: 'Instrument Serif', serif; font-size: 16px; line-height: 1.3; color: var(--texto); font-weight: 400; margin-bottom: 4px; }
+  .banner-desc { font-family: 'Source Serif 4', serif; font-size: 13px; font-weight: 300; color: var(--texto-muted); line-height: 1.6; margin-bottom: 5px; }
+  .banner-date { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 300; color: var(--texto-meta); }
+
+  /* newsletter */
   .newsletter { margin: 8px 0 60px; background: var(--negro); padding: 40px 44px; border-radius: 3px; }
   .nl-eyebrow { font-family: 'Source Serif 4', serif; font-size: 10px; font-weight: 300; letter-spacing: 1.8px; text-transform: uppercase; color: #5a5a58; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
   .nl-eyebrow::before { content: '●'; color: var(--verde-claro); font-size: 7px; }
@@ -160,10 +140,9 @@
   .nl-input { flex: 1; background: #252523; border: 1px solid #363634; border-right: none; color: #f0ece2; font-family: 'Source Serif 4', serif; font-size: 14px; font-weight: 300; padding: 12px 16px; border-radius: 2px 0 0 2px; outline: none; }
   .nl-input::placeholder { color: #4a4a48; font-style: italic; }
   .nl-btn { background: var(--verde-medio); color: #f0ece2; font-family: 'Source Serif 4', serif; font-size: 13px; font-style: italic; padding: 12px 24px; border: none; border-radius: 0 2px 2px 0; cursor: pointer; white-space: nowrap; }
-
   .nl-fine { font-family: 'Source Serif 4', serif; font-size: 11px; font-weight: 300; font-style: italic; color: #4a4a48; margin-top: 12px; }
 
-  /* ── FOOTER ── */
+  /* footer */
   .site-footer { background: var(--verde-oscuro); padding: 36px var(--pad); }
   .footer-inner { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
   .footer-logo { font-family: 'Instrument Serif', serif; font-size: 28px; color: #f0ece2; margin-bottom: 6px; }
@@ -173,14 +152,12 @@
   .footer-link:hover { color: #f0ece2; }
   .footer-copy { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300; color: #3a5030; letter-spacing: 0.5px; align-self: flex-end; }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 860px) {
     :root { --pad: 20px; }
     .logo { font-size: 38px; }
     .site-nav { overflow-x: auto; }
     .hero-title { font-size: 36px; }
     .visual-card { gap: 28px; padding: 22px; }
-    .stat-num { font-size: 32px; }
     .newsletter { padding: 28px 24px; }
     .footer-inner { flex-direction: column; gap: 24px; }
   }
@@ -234,14 +211,12 @@
       </div>
       <a href="sentencia.html" class="entry-link">
         <div class="entry-top">
-          <div class="entry-meta"></div>
+          <div></div>
           <span class="entry-date-badge">12 may 2026 · 8 min</span>
         </div>
         <div class="entry-title">El silencio administrativo en licencias urbanísticas: el Supremo corrige la doctrina de los TSJ</div>
         <p class="entry-excerpt">La sala tercera fija que el silencio positivo no opera cuando la licencia solicitada es contraria al planeamiento, aunque la administración no haya resuelto en plazo. Consecuencias directas para promotores y fondos con operaciones en tramitación.</p>
-        <div class="entry-footer">
-          <span class="entry-read">Leer el análisis →</span>
-        </div>
+        <div class="entry-footer"><span class="entry-read">Leer el análisis →</span></div>
       </a>
     </div>
 
@@ -271,26 +246,19 @@
         </div>
       </div>
       <div class="entry-footer" style="padding: 12px 0 18px;">
-        <span class="entry-date-badge" style="color:var(--texto-meta);font-family:'Inter',sans-serif;font-size:11px;font-weight:300;">9 may 2026</span>
+        <span class="entry-date-badge" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:300;color:var(--texto-meta);">9 may 2026</span>
         <span class="sep">·</span>
-        <a href="numeros.html" class="entry-read" style="font-family:'Source Serif 4',serif;font-size:12px;font-style:italic;color:var(--verde-medio);">Ver el gráfico completo →</a>
+        <a href="numeros.html" style="font-family:'Source Serif 4',serif;font-size:12px;font-style:italic;color:var(--verde-medio);">Ver el gráfico completo →</a>
       </div>
     </div>
 
     <!-- ASÍ LO VEO -->
     <div class="entry-card">
-      <div class="entry-label-row">
-        <span class="tag">Así lo veo</span>
-      </div>
+      <div class="entry-label-row"><span class="tag">Así lo veo</span></div>
       <a href="opinion.html" class="entry-link">
-        <div class="entry-top">
-          <div class="entry-meta"></div>
-          <span class="entry-date-badge">7 may 2026 · 6 min</span>
-        </div>
+        <div class="entry-top"><div></div><span class="entry-date-badge">7 may 2026 · 6 min</span></div>
         <div class="entry-title-sm">La ley de vivienda no ha fracasado. Ha hecho exactamente lo que hace cualquier norma sin mecanismos de ejecución: decorar.</div>
-        <div class="entry-footer">
-          <span class="entry-read">Leer →</span>
-        </div>
+        <div class="entry-footer"><span class="entry-read">Leer →</span></div>
       </a>
     </div>
 
@@ -302,15 +270,10 @@
         <span class="loc">Estatal</span>
       </div>
       <a href="legislativa.html" class="entry-link">
-        <div class="entry-top">
-          <div class="entry-meta"></div>
-          <span class="entry-date-badge">5 may 2026 · 5 min</span>
-        </div>
+        <div class="entry-top"><div></div><span class="entry-date-badge">5 may 2026 · 5 min</span></div>
         <div class="entry-title-sm">RDL 2/2026: el aval estatal para primera vivienda, explicado sin eufemismos</div>
         <p class="entry-excerpt">Qué cubre, qué excluye, y por qué el régimen transitorio es el punto más conflictivo del decreto.</p>
-        <div class="entry-footer">
-          <span class="entry-read">Leer →</span>
-        </div>
+        <div class="entry-footer"><span class="entry-read">Leer →</span></div>
       </a>
     </div>
 
@@ -319,20 +282,15 @@
       <div class="entry-label-row">
         <span class="tag">Urbanismo y Vivienda</span>
         <span class="sep">·</span>
-        <span class="loc">Ep. 1 · 47:12</span>
+        <span class="loc">Ep. 2×05 · 27 min</span>
       </div>
       <a href="podcast.html" class="podcast-card">
         <div class="pod-icon"><div class="play-btn"></div></div>
         <div class="podcast-body">
-          <div class="entry-top" style="margin-bottom:10px;">
-            <div></div>
-            <span class="entry-date-badge">9 may 2026</span>
-          </div>
-          <div class="entry-title-sm">¿Construir es la solución?</div>
-          <p class="entry-excerpt">Tres millones de viviendas, un libro y una hipótesis. Hablamos de oferta, demanda y regulación con Jorge Galindo.</p>
-          <div class="entry-footer">
-            <span class="entry-read">Escuchar en Spotify →</span>
-          </div>
+          <div class="entry-top" style="margin-bottom:10px;"><div></div><span class="entry-date-badge">28 oct 2025</span></div>
+          <div class="entry-title-sm">Incendios forestales y reclasificaciones, ley de movilidad sostenible y nuevas normas en Murcia</div>
+          <p class="entry-excerpt">¿Los incendios buscan posibilitar reclasificaciones de suelo? Analizamos la afirmación, la nueva ley de movilidad y el decreto-ley urbanístico de la Región de Murcia.</p>
+          <div class="entry-footer"><span class="entry-read">Escuchar en Spotify →</span></div>
         </div>
       </a>
     </div>
@@ -342,24 +300,42 @@
       <div class="entry-label-row">
         <span class="tag">En el radar</span>
         <span class="sep">·</span>
-        <span class="loc">València · PAI del Grao</span>
+        <span class="loc">Valencia · Esta semana</span>
       </div>
       <div style="padding: 12px 0 0;">
-        <div class="entry-title-sm" style="margin-bottom:10px;">La deuda de la F1 en el PAI del Grao: un convenio de 2007, 46 millones en litigio y Camps presionando desde fuera</div>
-        <p style="font-family:'Source Serif 4',serif;font-size:15px;font-weight:300;color:var(--texto-muted);line-height:1.72;margin-bottom:16px;">Ayuntamiento y Generalitat negocian repartirse al 50% la parte de la deuda que los promotores no están obligados a asumir. El expresident Camps insiste en que el convenio que él firmó en 2007 obliga a repercutir el 100% a los urbanizadores.</p>
+        <div class="entry-title-sm" style="margin-bottom:10px;">Casitas Rosas, PAI del Grao y la F1: dos frentes urbanísticos abiertos en Valencia</div>
+        <p style="font-family:'Source Serif 4',serif;font-size:15px;font-weight:300;color:var(--texto-muted);line-height:1.72;margin-bottom:16px;">AUMSA encargará el plan de derribos de las Casitas Rosas mientras Ayuntamiento y Generalitat siguen negociando quién paga la deuda del circuito de F1.</p>
       </div>
       <div class="radar-banners">
+        <a class="radar-banner" href="https://www.lasprovincias.es/valencia-ciudad/urbanismo-encarga-aumsa-plan-derribos-reurbanizacion-casitas-20260515154035-nt.html" target="_blank" rel="noopener">
+          <div class="banner-favicon">
+            <img src="https://www.google.com/s2/favicons?domain=lasprovincias.es&sz=32" alt="Las Provincias" />
+          </div>
+          <div>
+            <div class="banner-source">Las Provincias</div>
+            <div class="banner-title">Urbanismo encarga a Aumsa el plan de derribos y reurbanización de las Casitas</div>
+            <div class="banner-date">15 may 2026</div>
+          </div>
+        </a>
         <a class="radar-banner" href="https://valenciaplaza.com/valenciaplaza/valencia/ayuntamiento-y-generalitat-negocian-asumir-al-50-el-coste-de-la-f1-que-no-pagaran-los-promotores-del-pai" target="_blank" rel="noopener">
-          <div class="banner-source">Valencia Plaza</div>
-          <div class="banner-title">Ayuntamiento y Generalitat negocian asumir al 50% el coste de la F1 que no pagarán los promotores del PAI</div>
-          <div class="banner-desc">Ultiman un nuevo convenio que fija un reparto equitativo de los más de 20 millones de deuda pendiente y establece el pago del Ayuntamiento en suelo del propio PAI para VPO.</div>
-          <div class="banner-date">12 may 2026</div>
+          <div class="banner-favicon">
+            <img src="https://www.google.com/s2/favicons?domain=valenciaplaza.com&sz=32" alt="Valencia Plaza" />
+          </div>
+          <div>
+            <div class="banner-source">Valencia Plaza</div>
+            <div class="banner-title">Ayuntamiento y Generalitat negocian asumir al 50% el coste de la F1 que no pagarán los promotores del PAI</div>
+            <div class="banner-date">12 may 2026</div>
+          </div>
         </a>
         <a class="radar-banner" href="https://valenciaplaza.com/valenciaplaza/valencia/campsaprieta-a-catalay-a-llorca-insiste-en-que-los-promotores-del-pai-deben-asumir-toda-la-deuda-de-la-f1" target="_blank" rel="noopener">
-          <div class="banner-source">Valencia Plaza</div>
-          <div class="banner-title">Camps aprieta a Catalá y a Llorca: insiste en que los promotores del PAI deben asumir toda la deuda de la F1</div>
-          <div class="banner-desc">El expresident considera que el convenio firmado en 2007 obliga al Ayuntamiento a reclamar a los urbanizadores la totalidad de la inversión del circuito.</div>
-          <div class="banner-date">13 may 2026</div>
+          <div class="banner-favicon">
+            <img src="https://www.google.com/s2/favicons?domain=valenciaplaza.com&sz=32" alt="Valencia Plaza" />
+          </div>
+          <div>
+            <div class="banner-source">Valencia Plaza</div>
+            <div class="banner-title">Camps aprieta a Catalá y a Llorca: insiste en que los promotores del PAI deben asumir toda la deuda de la F1</div>
+            <div class="banner-date">13 may 2026</div>
+          </div>
         </a>
       </div>
       <div style="padding: 14px 0 18px;">

@@ -31,7 +31,6 @@
   body { font-family: 'Source Serif 4', serif; background: var(--crema); color: var(--texto); -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; }
 
-  /* header */
   .site-header { background: var(--verde-oscuro); position: sticky; top: 0; z-index: 100; }
   .header-top { display: flex; align-items: center; justify-content: space-between; padding: 16px var(--pad) 14px; border-bottom: 1px solid #3d5430; max-width: var(--max); margin: 0 auto; gap: 24px; }
   .logo { font-family: 'Instrument Serif', serif; font-size: 52px; color: #f0ece2; letter-spacing: -1.5px; line-height: 1; margin-bottom: 4px; }
@@ -44,23 +43,18 @@
   .nav-link.active { color: #f0ece2; border-bottom: 2px solid var(--verde-claro); }
   .nav-cta { margin-left: auto; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; background: var(--verde-claro); color: #1e2d15; padding: 7px 16px; border-radius: 2px; cursor: pointer; white-space: nowrap; flex-shrink: 0; border: none; }
 
-  /* layout */
   .site-main { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad) 80px; }
 
-  .section-header { padding: 48px 0 32px; border-bottom: 1px solid var(--borde-fuerte); margin-bottom: 0; }
+  .section-header { padding: 48px 0 32px; border-bottom: 1px solid var(--borde-fuerte); }
   .section-eyebrow { font-family: 'Source Serif 4', serif; font-size: 10px; font-weight: 300; letter-spacing: 1.8px; text-transform: uppercase; color: var(--texto-meta); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
   .section-eyebrow::before { content: '●'; color: var(--verde-medio); font-size: 7px; }
   .section-title { font-family: 'Instrument Serif', serif; font-size: 42px; line-height: 1.12; letter-spacing: -0.3px; color: var(--texto); margin-bottom: 12px; }
   .section-desc { font-family: 'Source Serif 4', serif; font-size: 16px; font-weight: 300; color: var(--texto-muted); line-height: 1.72; max-width: 580px; }
 
   /* radar card */
-  .radar-card {
-    border-bottom: 1px solid var(--borde);
-    padding: 36px 0;
-  }
+  .radar-card { border-bottom: 1px solid var(--borde); padding: 36px 0; }
 
   .card-meta { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
-
   .tag { font-family: 'Source Serif 4', serif; font-size: 10px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--verde-medio); }
   .loc { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300; letter-spacing: 0.8px; text-transform: uppercase; color: var(--texto-meta); }
   .sep { font-family: 'Inter', sans-serif; color: var(--borde-fuerte); font-size: 10px; }
@@ -72,9 +66,9 @@
   .news-banners { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
 
   .news-banner {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 0 16px;
     background: var(--crema-oscura);
     border: 1px solid var(--borde);
     border-left: 3px solid var(--verde-medio);
@@ -83,12 +77,31 @@
     transition: border-left-color 0.15s, background 0.15s;
     text-decoration: none;
     color: inherit;
+    align-items: start;
   }
 
-  .news-banner:hover {
-    border-left-color: var(--verde-claro);
-    background: #e8e4dc;
+  .news-banner:hover { border-left-color: var(--verde-claro); background: #e8e4dc; }
+
+  .banner-favicon {
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    background: var(--borde);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    overflow: hidden;
+    flex-shrink: 0;
   }
+
+  .banner-favicon img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  .banner-body {}
 
   .banner-source {
     font-family: 'Inter', sans-serif;
@@ -97,12 +110,8 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--verde-medio);
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    margin-bottom: 5px;
   }
-
-  .banner-source::before { content: '↗'; font-size: 11px; }
 
   .banner-title {
     font-family: 'Instrument Serif', serif;
@@ -110,6 +119,7 @@
     line-height: 1.3;
     color: var(--texto);
     font-weight: 400;
+    margin-bottom: 5px;
   }
 
   .banner-desc {
@@ -118,6 +128,7 @@
     font-weight: 300;
     color: var(--texto-muted);
     line-height: 1.65;
+    margin-bottom: 6px;
   }
 
   .banner-date {
@@ -125,13 +136,11 @@
     font-size: 11px;
     font-weight: 300;
     color: var(--texto-meta);
-    margin-top: 2px;
   }
 
   .card-footer { display: flex; align-items: center; gap: 12px; }
   .card-date { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 300; color: var(--texto-meta); }
 
-  /* footer */
   .site-footer { background: var(--verde-oscuro); padding: 32px var(--pad); }
   .footer-inner { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
   .footer-logo { font-family: 'Instrument Serif', serif; font-size: 24px; color: #f0ece2; }
@@ -179,6 +188,34 @@
     <p class="section-desc">Noticias, informes y lecturas filtradas por Javier de la Torre. No todo lo que se publica importa. Esto sí.</p>
   </div>
 
+  <!-- NOTICIA 1: Casitas Rosas -->
+  <div class="radar-card">
+    <div class="card-meta">
+      <span class="tag">Urbanismo · Valencia</span>
+      <span class="sep">·</span>
+      <span class="loc">Casitas Rosas · Malva-rosa</span>
+    </div>
+    <h2 class="card-title">AUMSA redactará el plan de derribos y reurbanización de las Casitas Rosas</h2>
+    <p class="card-summary">El Ayuntamiento de València encarga a AUMSA la redacción del instrumento de planeamiento que definirá la nueva ordenación, el realojo de los residentes y los criterios de derribo del conjunto de las Casitas Rosas en la Malva-rosa. Una demanda histórica del barrio que ahora entra en fase técnica.</p>
+    <div class="news-banners">
+      <a class="news-banner" href="https://www.lasprovincias.es/valencia-ciudad/urbanismo-encarga-aumsa-plan-derribos-reurbanizacion-casitas-20260515154035-nt.html" target="_blank" rel="noopener">
+        <div class="banner-favicon">
+          <img src="https://www.google.com/s2/favicons?domain=lasprovincias.es&sz=32" alt="Las Provincias" />
+        </div>
+        <div class="banner-body">
+          <div class="banner-source">Las Provincias</div>
+          <div class="banner-title">Urbanismo encarga a Aumsa el plan de derribos y reurbanización de las Casitas</div>
+          <div class="banner-desc">El área de Urbanismo del Ayuntamiento de València activa el encargo a la empresa municipal para redactar el instrumento de planeamiento que definirá la nueva ordenación del conjunto residencial.</div>
+          <div class="banner-date">15 may 2026</div>
+        </div>
+      </a>
+    </div>
+    <div class="card-footer">
+      <span class="card-date">Añadido el 15 may 2026</span>
+    </div>
+  </div>
+
+  <!-- NOTICIA 2: PAI del Grao / F1 -->
   <div class="radar-card">
     <div class="card-meta">
       <span class="tag">Urbanismo · Valencia</span>
@@ -186,19 +223,29 @@
       <span class="loc">PAI del Grao</span>
     </div>
     <h2 class="card-title">La deuda de la F1 en el PAI del Grao: un convenio de 2007, 46 millones en litigio y Camps presionando desde fuera</h2>
-    <p class="card-summary">Ayuntamiento y Generalitat negocian repartirse al 50% la parte de la deuda del circuito que los promotores no están legalmente obligados a asumir. El consistorio pagaría su parte en suelo del propio PAI para que la EVha construya vivienda pública. Mientras, el expresident Camps —quien firmó el convenio original en 2007— insiste en que el acuerdo obliga a repercutir el 100% a los urbanizadores y no descarta acciones legales. El Consell Jurídic Consultiu ya dictaminó que el Ayuntamiento debe asumir la deuda, pero abrió la puerta a negociar los términos.</p>
+    <p class="card-summary">Ayuntamiento y Generalitat negocian repartirse al 50% la parte de la deuda del circuito que los promotores no están legalmente obligados a asumir. El consistorio pagaría su parte en suelo del propio PAI para que la EVha construya vivienda pública. Mientras, el expresident Camps —quien firmó el convenio original en 2007— insiste en que el acuerdo obliga a repercutir el 100% a los urbanizadores y no descarta acciones legales.</p>
     <div class="news-banners">
       <a class="news-banner" href="https://valenciaplaza.com/valenciaplaza/valencia/ayuntamiento-y-generalitat-negocian-asumir-al-50-el-coste-de-la-f1-que-no-pagaran-los-promotores-del-pai" target="_blank" rel="noopener">
-        <span class="banner-source">Valencia Plaza</span>
-        <span class="banner-title">Ayuntamiento y Generalitat negocian asumir al 50% el coste de la F1 que no pagarán los promotores del PAI</span>
-        <span class="banner-desc">Ultiman un nuevo convenio que fija un reparto equitativo de los más de 20 millones de deuda pendiente y establece el pago del Ayuntamiento en suelo del propio PAI para VPO.</span>
-        <span class="banner-date">12 may 2026</span>
+        <div class="banner-favicon">
+          <img src="https://www.google.com/s2/favicons?domain=valenciaplaza.com&sz=32" alt="Valencia Plaza" />
+        </div>
+        <div class="banner-body">
+          <div class="banner-source">Valencia Plaza</div>
+          <div class="banner-title">Ayuntamiento y Generalitat negocian asumir al 50% el coste de la F1 que no pagarán los promotores del PAI</div>
+          <div class="banner-desc">Ultiman un nuevo convenio que fija un reparto equitativo de los más de 20 millones de deuda pendiente y establece el pago del Ayuntamiento en suelo del propio PAI para VPO.</div>
+          <div class="banner-date">12 may 2026</div>
+        </div>
       </a>
       <a class="news-banner" href="https://valenciaplaza.com/valenciaplaza/valencia/campsaprieta-a-catalay-a-llorca-insiste-en-que-los-promotores-del-pai-deben-asumir-toda-la-deuda-de-la-f1" target="_blank" rel="noopener">
-        <span class="banner-source">Valencia Plaza</span>
-        <span class="banner-title">Camps aprieta a Catalá y a Llorca: insiste en que los promotores del PAI deben asumir toda la deuda de la F1</span>
-        <span class="banner-desc">El expresident considera que el convenio firmado en 2007 obliga al Ayuntamiento a reclamar a los urbanizadores la totalidad de la inversión del circuito.</span>
-        <span class="banner-date">13 may 2026</span>
+        <div class="banner-favicon">
+          <img src="https://www.google.com/s2/favicons?domain=valenciaplaza.com&sz=32" alt="Valencia Plaza" />
+        </div>
+        <div class="banner-body">
+          <div class="banner-source">Valencia Plaza</div>
+          <div class="banner-title">Camps aprieta a Catalá y a Llorca: insiste en que los promotores del PAI deben asumir toda la deuda de la F1</div>
+          <div class="banner-desc">El expresident considera que el convenio firmado en 2007 obliga al Ayuntamiento a reclamar a los urbanizadores la totalidad de la inversión del circuito.</div>
+          <div class="banner-date">13 may 2026</div>
+        </div>
       </a>
     </div>
     <div class="card-footer">
