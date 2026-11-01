@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <!-- Iconos de Urbanitas: monumentos dibujados a línea, 48×48, apoyados en y=44.
+       El trazo usa currentColor; el detalle relleno toma el color de acento de la hoja de estilos. -->
+
+  <symbol id="i-bigben" viewBox="0 0 48 48">
+    <path d="M21 16a3 3 0 1 0 6 0a3 3 0 1 0 -6 0z" style="fill: var(--relleno)"/>
+    <path d="M19 44V20h10v24M18 20V12h12v8M21 16a3 3 0 1 0 6 0a3 3 0 1 0 -6 0M19 12V8h10v4M19 8l5-7 5 7M22 25v4M26 25v4M22 33v4M26 33v4M16 44h16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+  </symbol>
+
+  <symbol id="i-coliseo" viewBox="0 0 48 48">
+    <path d="M21 44v-5a2 2 0 0 1 4 0v5z" style="fill: var(--relleno)"/>
+    <path d="M4 44V18Q24 12 44 18V26L40 29V44ZM4 26h36M4 35h36M7 44v-5a2 2 0 0 1 4 0v5M14 44v-5a2 2 0 0 1 4 0v5M21 44v-5a2 2 0 0 1 4 0v5M28 44v-5a2 2 0 0 1 4 0v5M7 34v-4a2 2 0 0 1 4 0v4M14 34v-4a2 2 0 0 1 4 0v4M21 34v-4a2 2 0 0 1 4 0v4M28 34v-4a2 2 0 0 1 4 0v4M8 21h2M15 20h2M22 19.5h2M29 20h2" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+  </symbol>
+
+  <symbol id="i-eiffel" viewBox="0 0 48 48">
+    <path d="M21 14h6l-1-4h-4z" style="fill: var(--relleno)"/>
+    <path d="M8 44C14 36 18 26 21 14M40 44C34 36 30 26 27 14M15 44a9 8 0 0 1 18 0M12 32h24M18 22h12M21 14h6M22 14L24 3L26 14M24 3V1M15 32l9-10l9 10" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+  </symbol>
+
+  <symbol id="i-empire" viewBox="0 0 48 48">
+    <path d="M22 12V7h4v5z" style="fill: var(--relleno)"/>
+    <path d="M12 44V30h24v14M16 30V20h16v10M19 20V12h10v8M22 12V7h4v5M24 7V1M17 34v7M21 34v7M27 34v7M31 34v7M20 23v4M24 23v4M28 23v4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+  </symbol>
+
+  <symbol id="i-libertad" viewBox="0 0 48 48">
+    <path d="M29 7l1.5-5 1.5 5z" style="fill: var(--relleno)"/>
+    <path d="M15 44V33h18v11M13 33h22M19 33L21 18h6l2 15M21.5 15a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0M21 12.5l-2-2M24 12V9.5M27 12.5l2-2M26 18L30 8M29 8h3M21 23l-4 4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+  </symbol>
+
+  <symbol id="i-opera" viewBox="0 0 48 48">
+    <path d="M18 40C21 28 27 20 34 18C31 28 29 35 29 40Z" style="fill: var(--relleno)"/>
+    <path d="M4 44h40M6 40h36M8 40C10 30 16 24 22 22C20 30 18 36 18 40M18 40C21 28 27 20 34 18C31 28 29 35 29 40M29 40C31 32 36 28 42 27C40 33 40 37 40 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+  </symbol>
+
+  <symbol id="i-sagrada" viewBox="0 0 48 48">
+    <path d="M21 44v-6a3 3 0 0 1 6 0v6z" style="fill: var(--relleno)"/>
+    <path d="M8 44V22l2-8 2 8v22M14 44V16l3-12 3 12v28M20 44V12l4-11 4 11v32M28 44V16l3-12 3 12v28M36 44V22l2-8 2 8v22M21 44v-6a3 3 0 0 1 6 0v6M5 44h38" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+  </symbol>
+</svg>

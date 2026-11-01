@@ -1,304 +1,127 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>En el radar — Urbanitas</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>En el radar · Urbanitas</title>
+<meta name="description" content="Noticias, informes y lecturas de urbanismo y vivienda filtradas por Javier de la Torre.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --verde-oscuro: #2c3d20;
-    --verde-medio: #3d5c2e;
-    --verde-claro: #8aaa68;
-    --verde-texto: #a8c488;
-    --verde-tag: #7a9860;
-    --crema: #f5f2eb;
-    --crema-oscura: #eceade;
-    --negro: #1a1a18;
-    --texto: #1a1a18;
-    --texto-suave: #2e2c2a;
-    --texto-muted: #4a4640;
-    --texto-meta: #7a7570;
-    --borde: #ddd8cc;
-    --borde-fuerte: #c8c2b0;
-    --max: 1200px;
-    --pad: 56px;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Source Serif 4', serif; background: var(--crema); color: var(--texto); -webkit-font-smoothing: antialiased; }
-  a { color: inherit; text-decoration: none; }
-
-  .site-header { background: var(--verde-oscuro); }
-  .header-top { display: flex; align-items: center; justify-content: space-between; padding: 24px var(--pad) 22px; border-bottom: 1px solid #3d5430; max-width: var(--max); margin: 0 auto; gap: 24px; transition: opacity 0.3s ease, max-height 0.3s ease; overflow: hidden; }
-  .logo { font-family: 'Instrument Serif', serif; font-size: 68px; color: #f0ece2; letter-spacing: -2px; line-height: 1; margin-bottom: 6px; }
-  .logo-tagline { font-family: 'Source Serif 4', serif; font-size: 12px; color: var(--verde-tag); letter-spacing: 2.5px; text-transform: uppercase; font-weight: 400; font-style: italic; }
-  .header-date { font-family: 'Instrument Serif', serif; font-size: 14px; color: var(--verde-claro); font-style: italic; margin-bottom: 4px; text-align: right; }
-  .header-num { font-family: 'Source Serif 4', serif; font-size: 11px; color: #6a8855; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 300; text-align: right; }
-  .site-nav { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); display: flex; align-items: center; } .site-nav-wrapper { background: #1a1a18; position: sticky; top: 0; z-index: 200; border-bottom: 1px solid #2a2a28; }
-  .nav-link { font-family: 'Instrument Serif', serif; font-size: 16px; font-style: italic; color: #e8e8e4; padding: 14px 0; margin-right: 0; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.15s; display: inline-flex; align-items: center; }
-  .nav-link:hover { color: #ffffff; } .nav-sep { display: inline-block; width: 1px; height: 14px; background: #2e5c22; opacity: 0.7; margin: 0 16px; vertical-align: middle; flex-shrink: 0; }
-  .nav-link.active { color: #f0ece2; border-bottom: 2px solid var(--verde-claro); }
-  .nav-cta { margin-left: auto; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; background: var(--verde-claro); color: #1e2d15; padding: 7px 16px; border-radius: 2px; cursor: pointer; white-space: nowrap; flex-shrink: 0; border: none; }
-
-  .site-main { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad) 80px; }
-
-  .section-header { padding: 48px 0 32px; border-bottom: 1px solid var(--borde-fuerte); }
-  .section-eyebrow { font-family: 'Source Serif 4', serif; font-size: 10px; font-weight: 300; letter-spacing: 1.8px; text-transform: uppercase; color: var(--texto-meta); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-  .section-eyebrow::before { content: '●'; color: var(--verde-medio); font-size: 7px; }
-  .section-title { font-family: 'Instrument Serif', serif; font-size: 42px; line-height: 1.12; letter-spacing: -0.3px; color: var(--texto); margin-bottom: 12px; }
-  .section-desc { font-family: 'Source Serif 4', serif; font-size: 16px; font-weight: 300; color: var(--texto-muted); line-height: 1.72; max-width: 580px; }
-
-  /* radar card */
-  .radar-card { border-bottom: 1px solid var(--borde); padding: 36px 0; }
-
-  .card-meta { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
-  .tag { font-family: 'Source Serif 4', serif; font-size: 10px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--verde-medio); }
-  .loc { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300; letter-spacing: 0.8px; text-transform: uppercase; color: var(--texto-meta); }
-  .sep { font-family: 'Inter', sans-serif; color: var(--borde-fuerte); font-size: 10px; }
-
-  .card-title { font-family: 'Instrument Serif', serif; font-size: 26px; line-height: 1.26; color: var(--texto); margin-bottom: 12px; font-weight: 400; }
-  .card-summary { font-family: 'Source Serif 4', serif; font-size: 15px; font-weight: 300; color: var(--texto-muted); line-height: 1.75; margin-bottom: 24px; max-width: 760px; }
-
-  /* news banners */
-  .news-banners { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
-
-  .news-banner {
-    display: grid;
-    grid-template-columns: 44px 1fr;
-    gap: 0 16px;
-    background: var(--crema-oscura);
-    border: 1px solid var(--borde);
-    border-left: 3px solid var(--verde-medio);
-    border-radius: 2px;
-    padding: 18px 22px;
-    transition: border-left-color 0.15s, background 0.15s;
-    text-decoration: none;
-    color: inherit;
-    align-items: start;
-  }
-
-  .news-banner:hover { border-left-color: var(--verde-claro); background: #e8e4dc; }
-
-  .banner-favicon {
-    width: 56px;
-    height: 56px;
-    border-radius: 4px;
-    background: var(--borde);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2px;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-
-  .banner-favicon img {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-  }
-
-  .banner-body {}
-
-  .banner-source {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--verde-medio);
-    margin-bottom: 5px;
-  }
-
-  .banner-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 18px;
-    line-height: 1.3;
-    color: var(--texto);
-    font-weight: 400;
-    margin-bottom: 5px;
-  }
-
-  .banner-desc {
-    font-family: 'Source Serif 4', serif;
-    font-size: 13px;
-    font-weight: 300;
-    color: var(--texto-muted);
-    line-height: 1.65;
-    margin-bottom: 6px;
-  }
-
-  .banner-date {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 300;
-    color: var(--texto-meta);
-  }
-
-  .card-footer { display: flex; align-items: center; gap: 12px; }
-  .card-date { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 300; color: var(--texto-meta); }
-
-  .site-footer { background: var(--verde-oscuro); padding: 32px var(--pad); }
-  .footer-inner { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-  .footer-logo { font-family: 'Instrument Serif', serif; font-size: 24px; color: #f0ece2; }
-  .footer-copy { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300; color: #3a5030; }
-
-  @media (max-width: 860px) {
-    :root { --pad: 20px; }
-    .logo { font-size: 36px; }
-    .site-nav { overflow-x: auto; }
-    .section-title { font-size: 32px; }
-    .card-title { font-size: 22px; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/urbanitas.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23121212'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%23F5F5F2' text-anchor='middle'%3EU%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-top">
-    <div>
-      <a href="index.html"><div class="logo">Urbanitas</div></a>
-      <div class="logo-tagline">Derecho · Ciudad · Vivienda</div>
-    </div>
-    <div>
-      <div class="header-date" id="header-date"></div>
-      <div class="header-num">N.º 1 · Mayo 2026</div>
-    </div>
-  </div>
+<header class="cabecera contenedor">
+  <div class="cabecera-meta">Valencia · <span id="fecha-hoy"></span></div>
+  <a href="index.html" class="logo">Urbanitas</a>
+  <p class="lema">Derecho, ciudad y vivienda</p>
+  <nav class="skyline" aria-label="Secciones">
+      <a href="legislativa.html">
+        <span class="suelo"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-bigben"></use></svg></span>
+        <span class="nombre">Novedades legislativas</span>
+        <span class="ciudad">Big Ben · Londres</span>
+      </a>
+      <a href="sentencia.html">
+        <span class="suelo"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-coliseo"></use></svg></span>
+        <span class="nombre">La sentencia</span>
+        <span class="ciudad">Coliseo · Roma</span>
+      </a>
+      <a href="opinion.html">
+        <span class="suelo"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-eiffel"></use></svg></span>
+        <span class="nombre">Así lo veo</span>
+        <span class="ciudad">Torre Eiffel · París</span>
+      </a>
+      <a href="numeros.html">
+        <span class="suelo"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-empire"></use></svg></span>
+        <span class="nombre">En números</span>
+        <span class="ciudad">Empire State · Nueva York</span>
+      </a>
+      <a href="radar.html" aria-current="page">
+        <span class="suelo"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-libertad"></use></svg></span>
+        <span class="nombre">En el radar</span>
+        <span class="ciudad">Libertad · Nueva York</span>
+      </a>
+      <a href="podcast.html">
+        <span class="suelo"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-opera"></use></svg></span>
+        <span class="nombre">Podcast</span>
+        <span class="ciudad">Ópera · Sídney</span>
+      </a>
+      <a href="quien.html">
+        <span class="suelo"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-sagrada"></use></svg></span>
+        <span class="nombre">Quién soy</span>
+        <span class="ciudad">Sagrada Família · Barcelona</span>
+      </a>
+  </nav>
 </header>
-<div class="site-nav-wrapper"><nav class="site-nav">
-    <a href="legislativa.html" class="nav-link">Novedades legislativas</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="sentencia.html" class="nav-link">La sentencia</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="opinion.html" class="nav-link">Así lo veo</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="numeros.html" class="nav-link">En números</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="radar.html" class="nav-link active">En el radar</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="podcast.html" class="nav-link">Urbanismo y Vivienda</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="quien.html" class="nav-link">Quién soy</a>
-    <button class="nav-cta">Recibir el boletín →</button>
-  </nav></div>
 
-<main class="site-main">
-
-  <div class="section-header">
-    <div class="section-eyebrow">Sección · En el radar</div>
-    <h1 class="section-title">Lo que merece atención esta semana</h1>
-    <p class="section-desc">Noticias, informes y lecturas filtradas por Javier de la Torre. No todo lo que se publica importa. Esto sí.</p>
+<main class="contenedor">
+<div class="cabeza-pagina">
+  <svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-libertad"></use></svg>
+  <div>
+    <div class="eyebrow">Sección · En el radar</div>
+    <h1>Lo que merece atención esta semana</h1>
+    <p>Noticias, informes y lecturas filtradas por Javier de la Torre. No todo lo que se publica importa. Esto sí.</p>
   </div>
+</div>
 
-  <!-- NOTICIA 1: Casitas Rosas -->
-  <div class="radar-card">
-    <div class="card-meta">
-      <span class="tag">Urbanismo · Valencia</span>
-      <span class="sep">·</span>
-      <span class="loc">Casitas Rosas · Malva-rosa</span>
-    </div>
-    <h2 class="card-title">AUMSA redactará el plan de derribos y reurbanización de las Casitas Rosas</h2>
-    <p class="card-summary">El Ayuntamiento de València encarga a AUMSA la redacción del instrumento de planeamiento que definirá la nueva ordenación, el realojo de los residentes y los criterios de derribo del conjunto de las Casitas Rosas en la Malva-rosa. Una demanda histórica del barrio que ahora entra en fase técnica.</p>
-    <div class="news-banners">
-      <a class="news-banner" href="https://www.lasprovincias.es/valencia-ciudad/urbanismo-encarga-aumsa-plan-derribos-reurbanizacion-casitas-20260515154035-nt.html" target="_blank" rel="noopener">
-        <div class="banner-favicon">
-          <img src="https://www.google.com/s2/favicons?domain=lasprovincias.es&sz=64" alt="Las Provincias" />
-        </div>
-        <div class="banner-body">
-          <div class="banner-source">Las Provincias</div>
-          <div class="banner-title">Urbanismo encarga a Aumsa el plan de derribos y reurbanización de las Casitas</div>
-          <div class="banner-desc">El área de Urbanismo del Ayuntamiento de València activa el encargo a la empresa municipal para redactar el instrumento de planeamiento que definirá la nueva ordenación del conjunto residencial.</div>
-          <div class="banner-date">15 may 2026</div>
-        </div>
-      </a>
-    </div>
-    <div class="card-footer">
-      <span class="card-date">Añadido el 15 may 2026</span>
-    </div>
+<article class="historia">
+  <div class="eyebrow">Urbanismo · Valencia · Casitas Rosas, Malva-rosa</div>
+  <h2>AUMSA redactará el plan de derribos y reurbanización de las Casitas Rosas</h2>
+  <p>El Ayuntamiento de València encarga a AUMSA la redacción del instrumento de planeamiento que definirá la nueva ordenación, el realojo de los residentes y los criterios de derribo del conjunto de las Casitas Rosas en la Malva-rosa. Una demanda histórica del barrio que ahora entra en fase técnica.</p>
+  <div class="fuentes">
+    <a href="https://www.lasprovincias.es/valencia-ciudad/urbanismo-encarga-aumsa-plan-derribos-reurbanizacion-casitas-20260515154035-nt.html" target="_blank" rel="noopener">
+      <span class="fuente">Las Provincias · 15 may 2026</span>
+      <span class="tit">Urbanismo encarga a Aumsa el plan de derribos y reurbanización de las Casitas</span>
+      <span class="res">El área de Urbanismo del Ayuntamiento de València activa el encargo a la empresa municipal para redactar el instrumento de planeamiento que definirá la nueva ordenación del conjunto residencial.</span>
+    </a>
   </div>
+  <div class="fecha" style="margin-top: 14px">Añadido el 15 may 2026</div>
+</article>
 
-  <!-- NOTICIA 2: PAI del Grao / F1 -->
-  <div class="radar-card">
-    <div class="card-meta">
-      <span class="tag">Urbanismo · Valencia</span>
-      <span class="sep">·</span>
-      <span class="loc">PAI del Grao</span>
-    </div>
-    <h2 class="card-title">La deuda de la F1 en el PAI del Grao: un convenio de 2007, 46 millones en litigio y Camps presionando desde fuera</h2>
-    <p class="card-summary">Ayuntamiento y Generalitat negocian repartirse al 50% la parte de la deuda del circuito que los promotores no están legalmente obligados a asumir. El consistorio pagaría su parte en suelo del propio PAI para que la EVha construya vivienda pública. Mientras, el expresident Camps —quien firmó el convenio original en 2007— insiste en que el acuerdo obliga a repercutir el 100% a los urbanizadores y no descarta acciones legales.</p>
-    <div class="news-banners">
-      <a class="news-banner" href="https://valenciaplaza.com/valenciaplaza/valencia/ayuntamiento-y-generalitat-negocian-asumir-al-50-el-coste-de-la-f1-que-no-pagaran-los-promotores-del-pai" target="_blank" rel="noopener">
-        <div class="banner-favicon">
-          <img src="https://www.google.com/s2/favicons?domain=valenciaplaza.com&sz=64" alt="Valencia Plaza" />
-        </div>
-        <div class="banner-body">
-          <div class="banner-source">Valencia Plaza</div>
-          <div class="banner-title">Ayuntamiento y Generalitat negocian asumir al 50% el coste de la F1 que no pagarán los promotores del PAI</div>
-          <div class="banner-desc">Ultiman un nuevo convenio que fija un reparto equitativo de los más de 20 millones de deuda pendiente y establece el pago del Ayuntamiento en suelo del propio PAI para VPO.</div>
-          <div class="banner-date">12 may 2026</div>
-        </div>
-      </a>
-      <a class="news-banner" href="https://valenciaplaza.com/valenciaplaza/valencia/campsaprieta-a-catalay-a-llorca-insiste-en-que-los-promotores-del-pai-deben-asumir-toda-la-deuda-de-la-f1" target="_blank" rel="noopener">
-        <div class="banner-favicon">
-          <img src="https://www.google.com/s2/favicons?domain=valenciaplaza.com&sz=64" alt="Valencia Plaza" />
-        </div>
-        <div class="banner-body">
-          <div class="banner-source">Valencia Plaza</div>
-          <div class="banner-title">Camps aprieta a Catalá y a Llorca: insiste en que los promotores del PAI deben asumir toda la deuda de la F1</div>
-          <div class="banner-desc">El expresident considera que el convenio firmado en 2007 obliga al Ayuntamiento a reclamar a los urbanizadores la totalidad de la inversión del circuito.</div>
-          <div class="banner-date">13 may 2026</div>
-        </div>
-      </a>
-    </div>
-    <div class="card-footer">
-      <span class="card-date">Añadido el 15 may 2026</span>
-    </div>
+<article class="historia">
+  <div class="eyebrow">Urbanismo · Valencia · PAI del Grao</div>
+  <h2>La deuda de la F1 en el PAI del Grao: un convenio de 2007, 46 millones en litigio y Camps presionando desde fuera</h2>
+  <p>Ayuntamiento y Generalitat negocian repartirse al 50% la parte de la deuda del circuito que los promotores no están legalmente obligados a asumir. El consistorio pagaría su parte en suelo del propio PAI para que la EVha construya vivienda pública. Mientras, el expresident Camps —quien firmó el convenio original en 2007— insiste en que el acuerdo obliga a repercutir el 100% a los urbanizadores y no descarta acciones legales.</p>
+  <div class="fuentes">
+    <a href="https://valenciaplaza.com/valenciaplaza/valencia/ayuntamiento-y-generalitat-negocian-asumir-al-50-el-coste-de-la-f1-que-no-pagaran-los-promotores-del-pai" target="_blank" rel="noopener">
+      <span class="fuente">Valencia Plaza · 12 may 2026</span>
+      <span class="tit">Ayuntamiento y Generalitat negocian asumir al 50% el coste de la F1 que no pagarán los promotores del PAI</span>
+      <span class="res">Ultiman un nuevo convenio que fija un reparto equitativo de los más de 20 millones de deuda pendiente y establece el pago del Ayuntamiento en suelo del propio PAI para VPO.</span>
+    </a>
+    <a href="https://valenciaplaza.com/valenciaplaza/valencia/campsaprieta-a-catalay-a-llorca-insiste-en-que-los-promotores-del-pai-deben-asumir-toda-la-deuda-de-la-f1" target="_blank" rel="noopener">
+      <span class="fuente">Valencia Plaza · 13 may 2026</span>
+      <span class="tit">Camps aprieta a Catalá y a Llorca: insiste en que los promotores del PAI deben asumir toda la deuda de la F1</span>
+      <span class="res">El expresident considera que el convenio firmado en 2007 obliga al Ayuntamiento a reclamar a los urbanizadores la totalidad de la inversión del circuito.</span>
+    </a>
   </div>
+  <div class="fecha" style="margin-top: 14px">Añadido el 15 may 2026</div>
+</article>
 
+<section class="boletin" id="boletin" aria-labelledby="boletin-tit">
+  <div class="texto">
+    <h2 id="boletin-tit">El boletín de Urbanitas</h2>
+    <p>Cada dos viernes: lo que ha pasado en seis líneas, un análisis jurídico propio y un gráfico nuevo. Cero ruido.</p>
+  </div>
+  <form onsubmit="return false">
+    <label for="correo-boletin">Tu correo</label>
+    <input id="correo-boletin" type="email" placeholder="tu@correo.es" autocomplete="email" required>
+    <button type="submit" class="boton">Apúntame</button>
+    <span class="letra-pequena">Sin spam. Te puedes ir cuando quieras.</span>
+  </form>
+</section>
 </main>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-logo">Urbanitas</div>
-    <div class="footer-copy">© 2026 Urbanitas · urbanitas.blog</div>
+<footer class="pie contenedor">
+  <div class="perfil" aria-hidden="true"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-bigben"></use></svg><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-coliseo"></use></svg><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-eiffel"></use></svg><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-empire"></use></svg><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-libertad"></use></svg><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-opera"></use></svg><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-sagrada"></use></svg></div>
+  <div class="fila">
+    <span>Urbanitas · Javier de la Torre · Valencia</span>
+    <nav aria-label="Pie"><a href="legislativa.html">Novedades legislativas</a> <a href="sentencia.html">La sentencia</a> <a href="opinion.html">Así lo veo</a> <a href="numeros.html">En números</a> <a href="radar.html">En el radar</a> <a href="podcast.html">Podcast</a> <a href="quien.html">Quién soy</a></nav>
+    <span>© 2026 · urbanitas.blog</span>
   </div>
 </footer>
 
-<script>
-  
-  // Fade out header-top on scroll
-  const headerTop = document.querySelector(".header-top");
-  if (headerTop) {
-    window.addEventListener("scroll", function() {
-      const scrollY = window.scrollY;
-      const fadeStart = 20;
-      const fadeEnd = 110;
-      if (scrollY <= fadeStart) {
-        headerTop.style.opacity = "1";
-        headerTop.style.maxHeight = "200px";
-        headerTop.style.paddingTop = "";
-        headerTop.style.paddingBottom = "";
-      } else if (scrollY >= fadeEnd) {
-        headerTop.style.opacity = "0";
-        headerTop.style.maxHeight = "0";
-        headerTop.style.paddingTop = "0";
-        headerTop.style.paddingBottom = "0";
-      } else {
-        const ratio = 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
-        headerTop.style.opacity = ratio;
-        headerTop.style.maxHeight = (ratio * 200) + "px";
-      }
-    }, { passive: true });
-  }
-
-  const dias = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
-  const meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
-  const hoy = new Date();
-  document.getElementById("header-date").textContent = dias[hoy.getDay()] + ", " + hoy.getDate() + " de " + meses[hoy.getMonth()] + " de " + hoy.getFullYear();
-</script>
+<script src="assets/site.js"></script>
 </body>
 </html>

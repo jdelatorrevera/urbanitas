@@ -1,387 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quién soy — Urbanitas</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quién soy · Urbanitas</title>
 <meta name="description" content="Javier de la Torre, abogado urbanista en Valencia. Derecho público, urbanismo y ordenación del territorio.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --verde-oscuro: #2c3d20;
-    --verde-medio: #3d5c2e;
-    --verde-claro: #8aaa68;
-    --verde-texto: #a8c488;
-    --verde-tag: #7a9860;
-    --crema: #f5f2eb;
-    --crema-oscura: #eceade;
-    --negro: #1a1a18;
-    --texto: #1a1a18;
-    --texto-muted: #1e1c1a;
-    --texto-meta: #7a7570;
-    --borde: #ddd8cc;
-    --borde-fuerte: #c8c2b0;
-    --max: 1200px;
-    --pad: 56px;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Source Serif 4', serif; background: var(--crema); color: var(--texto); -webkit-font-smoothing: antialiased; }
-  a { color: inherit; text-decoration: none; }
-
-  .site-header { background: var(--verde-oscuro); }
-  .header-top { display: flex; align-items: center; justify-content: space-between; padding: 24px var(--pad) 22px; border-bottom: 1px solid #3d5430; max-width: var(--max); margin: 0 auto; gap: 24px; transition: opacity 0.3s ease, max-height 0.3s ease; overflow: hidden; }
-  .logo { font-family: 'Instrument Serif', serif; font-size: 68px; color: #f0ece2; letter-spacing: -2px; line-height: 1; margin-bottom: 6px; }
-  .logo-tagline { font-family: 'Source Serif 4', serif; font-size: 12px; color: var(--verde-tag); letter-spacing: 2.5px; text-transform: uppercase; font-weight: 400; font-style: italic; }
-  .header-date { font-family: 'Instrument Serif', serif; font-size: 14px; color: var(--verde-claro); font-style: italic; margin-bottom: 4px; text-align: right; }
-  .header-num { font-family: 'Source Serif 4', serif; font-size: 11px; color: #6a8855; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 300; text-align: right; }
-  .site-nav { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); display: flex; align-items: center; } .site-nav-wrapper { background: #1a1a18; position: sticky; top: 0; z-index: 200; border-bottom: 1px solid #2a2a28; }
-  .nav-link { font-family: 'Instrument Serif', serif; font-size: 16px; font-style: italic; color: #e8e8e4; padding: 14px 0; margin-right: 0; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.15s; display: inline-flex; align-items: center; }
-  .nav-link:hover { color: #ffffff; } .nav-sep { display: inline-block; width: 1px; height: 14px; background: #2e5c22; opacity: 0.7; margin: 0 16px; vertical-align: middle; flex-shrink: 0; }
-  .nav-link.active { color: #f0ece2; border-bottom: 2px solid var(--verde-claro); }
-  .nav-cta { margin-left: auto; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; background: var(--verde-claro); color: #1e2d15; padding: 7px 16px; border-radius: 2px; cursor: pointer; white-space: nowrap; flex-shrink: 0; border: none; }
-
-  .site-main { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad) 100px; }
-
-  .page-header {
-    padding: 52px 0 48px;
-    border-bottom: 1px solid var(--borde-fuerte);
-    max-width: 680px;
-  }
-
-  .page-eyebrow {
-    font-family: 'Source Serif 4', serif;
-    font-size: 10px;
-    font-weight: 300;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: var(--texto-meta);
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .page-eyebrow::before { content: '●'; color: var(--verde-medio); font-size: 7px; }
-
-  .page-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 48px;
-    line-height: 1.1;
-    letter-spacing: -0.5px;
-    color: var(--texto);
-    margin-bottom: 0;
-  }
-
-  .bio {
-    padding: 48px 0 0;
-    max-width: 640px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .bio p {
-    font-family: 'Source Serif 4', serif;
-    font-size: 17px;
-    font-weight: 300;
-    color: var(--texto-muted);
-    line-height: 1.82;
-  }
-
-  .bio p.final {
-    font-family: 'Instrument Serif', serif;
-    font-size: 20px;
-    line-height: 1.5;
-    color: var(--texto);
-    font-style: italic;
-    padding-top: 8px;
-    border-top: 1px solid var(--borde);
-  }
-
-  .bio-links {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    padding-top: 12px;
-  }
-
-  .bio-link {
-    font-family: 'Source Serif 4', serif;
-    font-size: 13px;
-    font-style: italic;
-    color: var(--verde-medio);
-    border-bottom: 1px solid var(--verde-medio);
-    transition: color 0.15s;
-  }
-  .bio-link:hover { color: #4a6e38; }
-
-  .contact {
-    margin-top: 56px;
-    padding-top: 40px;
-    border-top: 1px solid var(--borde-fuerte);
-    max-width: 640px;
-  }
-
-  .contact-eyebrow {
-    font-family: 'Source Serif 4', serif;
-    font-size: 10px;
-    font-weight: 300;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: var(--texto-meta);
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .contact-eyebrow::before { content: '●'; color: var(--verde-medio); font-size: 7px; }
-
-  .contact-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 30px;
-    color: var(--texto);
-    margin-bottom: 12px;
-    letter-spacing: -0.2px;
-  }
-
-  .contact-desc {
-    font-family: 'Source Serif 4', serif;
-    font-size: 15px;
-    font-weight: 300;
-    color: var(--texto-muted);
-    line-height: 1.72;
-    margin-bottom: 28px;
-    max-width: 480px;
-  }
-
-  .contact-form { display: flex; flex-direction: column; gap: 14px; }
-
-  .form-row { display: flex; gap: 14px; flex-wrap: wrap; }
-
-  .form-field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    flex: 1;
-    min-width: 200px;
-  }
-
-  .form-field label {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--texto-meta);
-  }
-
-  .form-field input,
-  .form-field textarea {
-    font-family: 'Source Serif 4', serif;
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--texto);
-    background: var(--crema-oscura);
-    border: 1px solid var(--borde);
-    border-radius: 2px;
-    padding: 11px 14px;
-    outline: none;
-    transition: border-color 0.15s;
-    width: 100%;
-  }
-
-  .form-field input:focus,
-  .form-field textarea:focus { border-color: var(--verde-medio); }
-  .form-field input::placeholder,
-  .form-field textarea::placeholder { color: #b5af9f; font-style: italic; }
-
-  .form-field textarea { resize: vertical; min-height: 120px; }
-
-  .form-submit {
-    font-family: 'Source Serif 4', serif;
-    font-size: 13px;
-    font-style: italic;
-    background: var(--verde-medio);
-    color: var(--crema);
-    padding: 11px 28px;
-    border-radius: 2px;
-    border: none;
-    cursor: pointer;
-    align-self: flex-start;
-    transition: background 0.15s;
-  }
-  .form-submit:hover { background: #4a6e38; }
-
-  .form-notice {
-    font-family: 'Source Serif 4', serif;
-    font-size: 11px;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--texto-meta);
-    margin-top: 4px;
-  }
-
-  .form-success {
-    display: none;
-    font-family: 'Instrument Serif', serif;
-    font-size: 18px;
-    font-style: italic;
-    color: var(--verde-medio);
-    padding: 20px 0;
-  }
-
-  .site-footer { background: var(--verde-oscuro); padding: 32px var(--pad); }
-  .footer-inner { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-  .footer-logo { font-family: 'Instrument Serif', serif; font-size: 24px; color: #f0ece2; }
-  .footer-by { font-family: 'Source Serif 4', serif; font-size: 11px; font-weight: 300; font-style: italic; color: #5a7848; }
-  .footer-copy { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300; color: #3a5030; }
-
-  @media (max-width: 860px) {
-    :root { --pad: 20px; }
-    .logo { font-size: 36px; }
-    .site-nav { overflow-x: auto; }
-    .page-title { font-size: 36px; }
-    .bio p { font-size: 16px; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/urbanitas.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23121212'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%23F5F5F2' text-anchor='middle'%3EU%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-top">
-    <div>
-      <a href="index.html"><div class="logo">Urbanitas</div></a>
-      <div class="logo-tagline">Derecho · Ciudad · Vivienda</div>
-    </div>
-    <div>
-      <div class="header-date" id="header-date"></div>
-      <div class="header-num">N.º 1 · Mayo 2026</div>
-    </div>
-  </div>
+<header class="cabecera contenedor">
+  <div class="cabecera-meta">Valencia · <span id="fecha-hoy"></span></div>
+  <a href="index.html" class="logo">Urbanitas</a>
+  <p class="lema">Derecho, ciudad y vivienda</p>
+  <nav class="skyline" aria-label="Secciones">
+      <a href="legislativa.html">
+        <span class="suelo"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-bigben"></use></svg></span>
+        <span class="nombre">Novedades legislativas</span>
+        <span class="ciudad">Big Ben · Londres</span>
+      </a>
+      <a href="sentencia.html">
+        <span class="suelo"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-coliseo"></use></svg></span>
+        <span class="nombre">La sentencia</span>
+        <span class="ciudad">Coliseo · Roma</span>
+      </a>
+      <a href="opinion.html">
+        <span class="suelo"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-eiffel"></use></svg></span>
+        <span class="nombre">Así lo veo</span>
+        <span class="ciudad">Torre Eiffel · París</span>
+      </a>
+      <a href="numeros.html">
+        <span class="suelo"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-empire"></use></svg></span>
+        <span class="nombre">En números</span>
+        <span class="ciudad">Empire State · Nueva York</span>
+      </a>
+      <a href="radar.html">
+        <span class="suelo"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-libertad"></use></svg></span>
+        <span class="nombre">En el radar</span>
+        <span class="ciudad">Libertad · Nueva York</span>
+      </a>
+      <a href="podcast.html">
+        <span class="suelo"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-opera"></use></svg></span>
+        <span class="nombre">Podcast</span>
+        <span class="ciudad">Ópera · Sídney</span>
+      </a>
+      <a href="quien.html" aria-current="page">
+        <span class="suelo"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-sagrada"></use></svg></span>
+        <span class="nombre">Quién soy</span>
+        <span class="ciudad">Sagrada Família · Barcelona</span>
+      </a>
+  </nav>
 </header>
-<div class="site-nav-wrapper"><nav class="site-nav">
-    <a href="legislativa.html" class="nav-link">Novedades legislativas</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="sentencia.html" class="nav-link">La sentencia</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="opinion.html" class="nav-link">Así lo veo</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="numeros.html" class="nav-link">En números</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="radar.html" class="nav-link">En el radar</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="podcast.html" class="nav-link">Urbanismo y Vivienda</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="quien.html" class="nav-link active">Quién soy</a>
-    <button class="nav-cta">Recibir el boletín →</button>
-  </nav></div>
 
-<main class="site-main">
-
-  <div class="page-header">
-    <div class="page-eyebrow">Quién soy</div>
-    <h1 class="page-title">Javier de la Torre</h1>
+<main class="contenedor">
+<div class="cabeza-pagina">
+  <svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-sagrada"></use></svg>
+  <div>
+    <div class="eyebrow">Quién soy</div>
+    <h1>Javier de la Torre</h1>
+    <p>Abogado urbanista en Valencia. Derecho público, urbanismo y ordenación del territorio.</p>
   </div>
+</div>
 
-  <div class="bio">
-    <p>Soy abogado administrativista en la oficina de Valencia de Gómez-Acebo & Pombo, donde me dedico al derecho público y regulatorio con foco en urbanismo y ordenación del territorio. He trabajado en operaciones inmobiliarias y urbanísticas de todo tipo, desde planeamiento y gestión de suelo hasta recursos contencioso-administrativos y asesoramiento a promotores, fondos e inversores.</p>
-    <p>Fuera del despacho, he publicado artículos en revistas jurídicas especializadas, he dado clases sobre derecho urbanístico y coordino la Comisión de Urbanismo y Vivienda del Colegio de Economistas de Valencia. También llevo el podcast Urbanismo y Vivienda, donde intento explicar sin rodeos cómo funciona el sistema urbanístico español y qué está pasando en el mercado de la vivienda.</p>
-    <p class="final">Urbanitas es el sitio donde junto todo eso: análisis jurídico, datos y opinión sobre el mundo de las ciudades y el urbanismo.</p>
-    <div class="bio-links">
-      <a class="bio-link" href="https://www.linkedin.com/in/javier-de-la-torre-vera-0178101b7/" target="_blank" rel="noopener">LinkedIn →</a>
-      <a class="bio-link" href="https://open.spotify.com/show/69TKzW8NOPscZoflZmAkrW" target="_blank" rel="noopener">Podcast →</a>
-      <a class="bio-link" href="https://ga-p.com/abogados/javier-de-la-torre" target="_blank" rel="noopener">Gómez-Acebo & Pombo →</a>
-    </div>
-  </div>
+<div class="prosa" style="margin-top: 32px">
+  <p>Soy abogado administrativista en la oficina de Valencia de Gómez-Acebo &amp; Pombo, donde me dedico al derecho público y regulatorio con foco en urbanismo y ordenación del territorio. He trabajado en operaciones inmobiliarias y urbanísticas de todo tipo, desde planeamiento y gestión de suelo hasta recursos contencioso-administrativos y asesoramiento a promotores, fondos e inversores.</p>
+  <p>Fuera del despacho, he publicado artículos en revistas jurídicas especializadas, he dado clases sobre derecho urbanístico y coordino la Comisión de Urbanismo y Vivienda del Colegio de Economistas de Valencia. También llevo el podcast Urbanismo y Vivienda, donde intento explicar sin rodeos cómo funciona el sistema urbanístico español y qué está pasando en el mercado de la vivienda.</p>
+  <p>Urbanitas es el sitio donde junto todo eso: análisis jurídico, datos y opinión sobre el mundo de las ciudades y el urbanismo.</p>
+</div>
+<div class="enlaces-fila">
+  <a href="https://www.linkedin.com/in/javier-de-la-torre-vera-0178101b7/" target="_blank" rel="noopener">LinkedIn →</a>
+  <a href="podcast.html">Podcast →</a>
+  <a href="https://ga-p.com/abogados/javier-de-la-torre" target="_blank" rel="noopener">Gómez-Acebo &amp; Pombo →</a>
+</div>
 
-
-  <div class="contact">
-    <div class="contact-eyebrow">Contacto</div>
-    <h2 class="contact-title">Escríbeme</h2>
-    <p class="contact-desc">Si tienes una consulta, una propuesta o simplemente quieres comentar algo, puedes escribirme aquí. Intento responder a todo.</p>
-    <form class="contact-form" id="contact-form">
-      <div class="form-row">
-        <div class="form-field">
-          <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" placeholder="Tu nombre" required />
-        </div>
-        <div class="form-field">
-          <label for="email">Correo</label>
-          <input type="email" id="email" placeholder="tu@correo.es" required />
-        </div>
-      </div>
-      <div class="form-field">
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" placeholder="Escribe aquí tu mensaje..." required></textarea>
-      </div>
-      <button type="submit" class="form-submit">Enviar →</button>
-      <p class="form-notice">Solo lo leeré yo.</p>
-    </form>
-    <div class="form-success" id="form-success">Mensaje enviado. Te respondo en cuanto pueda.</div>
-  </div>
-
+<section class="bloque" aria-labelledby="contacto-tit">
+  <div class="cabeza-bloque"><h2 id="contacto-tit">Escríbeme</h2></div>
+  <p style="max-width: 600px; font-size: 18px; line-height: 1.5; color: var(--texto)">Si tienes una consulta, una propuesta o simplemente quieres comentar algo, puedes escribirme aquí. Intento responder a todo.</p>
+  <form id="contacto" class="formulario">
+    <label>Nombre<input name="nombre" type="text" autocomplete="name" required></label>
+    <label>Correo<input name="correo" type="email" autocomplete="email" required></label>
+    <label>Mensaje<textarea name="mensaje" required></textarea></label>
+    <div><button type="submit" class="boton">Enviar →</button></div>
+    <span class="fecha">Solo lo leeré yo.</span>
+  </form>
+  <p id="contacto-ok" hidden style="font-size: 18px">Mensaje preparado en tu correo. Te respondo en cuanto pueda.</p>
+</section>
 </main>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div>
-      <div class="footer-logo">Urbanitas</div>
-      <div class="footer-by">Por Javier de la Torre</div>
-    </div>
-    <div class="footer-copy">© 2026 Urbanitas · urbanitas.blog</div>
+<footer class="pie contenedor">
+  <div class="perfil" aria-hidden="true"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-bigben"></use></svg><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-coliseo"></use></svg><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-eiffel"></use></svg><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-empire"></use></svg><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-libertad"></use></svg><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-opera"></use></svg><svg class="icono" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/iconos.svg#i-sagrada"></use></svg></div>
+  <div class="fila">
+    <span>Urbanitas · Javier de la Torre · Valencia</span>
+    <nav aria-label="Pie"><a href="legislativa.html">Novedades legislativas</a> <a href="sentencia.html">La sentencia</a> <a href="opinion.html">Así lo veo</a> <a href="numeros.html">En números</a> <a href="radar.html">En el radar</a> <a href="podcast.html">Podcast</a> <a href="quien.html">Quién soy</a></nav>
+    <span>© 2026 · urbanitas.blog</span>
   </div>
 </footer>
 
-<script>
-  
-  // Fade out header-top on scroll
-  const headerTop = document.querySelector(".header-top");
-  if (headerTop) {
-    window.addEventListener("scroll", function() {
-      const scrollY = window.scrollY;
-      const fadeStart = 20;
-      const fadeEnd = 110;
-      if (scrollY <= fadeStart) {
-        headerTop.style.opacity = "1";
-        headerTop.style.maxHeight = "200px";
-        headerTop.style.paddingTop = "";
-        headerTop.style.paddingBottom = "";
-      } else if (scrollY >= fadeEnd) {
-        headerTop.style.opacity = "0";
-        headerTop.style.maxHeight = "0";
-        headerTop.style.paddingTop = "0";
-        headerTop.style.paddingBottom = "0";
-      } else {
-        const ratio = 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
-        headerTop.style.opacity = ratio;
-        headerTop.style.maxHeight = (ratio * 200) + "px";
-      }
-    }, { passive: true });
-  }
-
-  const dias = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
-  const meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
-  const hoy = new Date();
-  document.getElementById("header-date").textContent = dias[hoy.getDay()] + ", " + hoy.getDate() + " de " + meses[hoy.getMonth()] + " de " + hoy.getFullYear();
-
-  // Email obfuscado: construido en runtime para evitar scrapers
-  const u = "delatorrevera.fj";
-  const d = "gmail.com";
-  const dest = u + "@" + d;
-
-  document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const nombre = document.getElementById("nombre").value;
-    const email = document.getElementById("email").value;
-    const mensaje = document.getElementById("mensaje").value;
-    const subject = encodeURIComponent("Mensaje desde Urbanitas — " + nombre);
-    const body = encodeURIComponent("Nombre: " + nombre + "\nCorreo: " + email + "\n\n" + mensaje);
-    window.location.href = "mailto:" + dest + "?subject=" + subject + "&body=" + body;
-    document.getElementById("contact-form").style.display = "none";
-    document.getElementById("form-success").style.display = "block";
-  });
-</script>
+<script src="assets/site.js"></script>
 </body>
 </html>
